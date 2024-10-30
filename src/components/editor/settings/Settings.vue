@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="flex flex-col transition fixed top-0 left-0 lg:translate-y-0 lg:scale-100 h-[100dvh] duration-300 p-10 lg:px-6 lg:py-7 lg:h-full lg:opacity-100 gap-y-6 lg:max-w-lg lg:max-h-[calc(100vh-180px)] overflow-y-auto xl:max-w-full overflow-hidden mx-auto w-full lg:rounded-3xl lg:border bg-custom-black-2 border-white/50 lg:drop-shadow-green lg:z-10 lg:relative"
+    class="flex flex-col transition fixed top-0 left-0 lg:translate-y-0 lg:scale-100 h-[100dvh] duration-300 py-10 px-5 lg:px-6 lg:py-7 lg:h-full lg:opacity-100 gap-y-6 lg:max-w-lg lg:max-h-[calc(100vh-180px)] overflow-y-auto xl:max-w-full overflow-hidden mx-auto w-full lg:rounded-3xl lg:border bg-custom-black-2 border-white/50 lg:drop-shadow-green lg:z-10 lg:relative"
     :class="
       currentMethod
         ? 'opacity-100 z-20 translate-y-0 scale-100'

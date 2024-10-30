@@ -3,7 +3,7 @@
     <nav
       class="flex justify-between items-center max-w-screen-2xl mx-auto w-11/12"
     >
-      <router-link class="flex items-center gap-x-3" to="/">
+      <router-link class="flex items-center gap-2 md:gap-x-3" to="/">
         <img
           src="@/assets/logo.webp"
           alt="Logo Send My Money"
@@ -12,8 +12,9 @@
           height="50"
           loading="eager"
         />
-        <h1 class="text-white text-2xl font-bold hidden md:block">
-          Send My Money
+        <h1 class="text-white text-2xl font-bold drop-shadow-white">
+          <span class="hidden md:block">Send My Money</span>
+          <span class="md:hidden">SMM</span>
         </h1>
       </router-link>
       <div class="flex items-center gap-x-3">
