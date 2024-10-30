@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-col bg-custom-black-1 min-h-screen">
+  <main class="flex flex-col bg-custom-black-1 min-h-[100dvh]">
     <Header />
     <router-view />
   </main>
