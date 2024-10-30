@@ -1,0 +1,20 @@
+<template>
+  <button
+    class="py-2 px-4 rounded-lg hover:bg-custom-black-3 flex items-center gap-x-2 transition duration-200"
+    :class="isActive ? 'bg-custom-black-3' : ''"
+    @click="emit('click')"
+    name="tab"
+    @dblclick="emit('dbclick')"
+  >
+    <slot :isActive="isActive"></slot>
+  </button>
+</template>
+
+<script lang="ts" setup>
+interface Props {
+  isActive?: boolean;
+}
+
+defineProps<Props>();
+const emit = defineEmits(["dbclick", "click"]);
+</script>
