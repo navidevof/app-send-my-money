@@ -72,8 +72,8 @@ const uploadPhoto = (e: Event) => {
   const file = target.files?.[0];
 
   if (!file) return;
-  if (file.type !== "image/jpeg" && file.type !== "image/png") {
-    alert("Only JPEG and PNG files are allowed");
+  if (!file.type.includes("image")) {
+    alert("Only images files are allowed");
     return;
   }
 

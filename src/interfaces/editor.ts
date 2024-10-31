@@ -43,4 +43,9 @@ export interface IMethodStyle {
   color?: string;
 }
 
+export interface IOptionStyle {
+  background?: string;
+  color?: string;
+}
+
 export type TTab = "Methods" | "Appearance";

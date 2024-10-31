@@ -9,6 +9,7 @@
       <IconPencil class="size-5 text-custom-green-1 cursor-pointer" />
     </button>
     <input
+      ref="$inputRef"
       v-show="showInput"
       class="w-full text-white bg-transparent"
       type="text"
@@ -34,7 +35,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { nextTick, ref, watch } from "vue";
 import IconPencil from "@/components/icons/IconPencil.vue";
 import { IField } from "@/interfaces/editor";
 
@@ -43,7 +44,15 @@ interface Props {
 }
 
 defineProps<Props>();
-
-const showInput = ref<boolean>(false);
 const emit = defineEmits(["delete"]);
+
+const $inputRef = ref<HTMLInputElement>();
+const showInput = ref<boolean>(false);
+
+watch(showInput, async (newVal) => {
+  if (newVal) {
+    await nextTick();
+    $inputRef.value?.focus();
+  }
+});
 </script>

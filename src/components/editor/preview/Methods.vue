@@ -9,7 +9,7 @@
       :text="method.name"
       :icon="method.icon"
       :style="page.styles.method"
-      @click="() => console.log('click')"
+      @click="() => handleClick(method)"
     />
   </aside>
 </template>
@@ -18,7 +18,19 @@
 import { storeToRefs } from "pinia";
 import { useEditor } from "@/components/editor/store";
 import ButtonMethod from "./ButtonMethod.vue";
+import { IMethod } from "@/interfaces/editor";
+
+interface Props {
+  showModalDetail: () => void;
+}
+
+const { showModalDetail } = defineProps<Props>();
 
 const editorStore = useEditor();
-const { page } = storeToRefs(editorStore);
+const { page, currentMethod } = storeToRefs(editorStore);
+
+const handleClick = (method: IMethod) => {
+  currentMethod.value = method;
+  showModalDetail();
+};
 </script>

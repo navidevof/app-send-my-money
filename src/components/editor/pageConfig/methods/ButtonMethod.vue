@@ -5,7 +5,7 @@
       :class="isActive ? 'bg-custom-green-2' : 'bg-custom-black-3'"
       @click="emit('click')"
     >
-      <div class="flex items-center gap-x-4">
+      <div class="flex items-center gap-x-3">
         <div
           class="aspect-square w-8 h-8 drop-shadow-black grid place-items-center rounded-lg overflow-hidden bg-white"
         >
@@ -20,7 +20,10 @@
           />
           <IconBank v-else class="size-full text-custom-black-2 p-1" />
         </div>
-        <h4 class="text-white xl:text-lg" :class="isActive && 'font-semibold'">
+        <h4
+          class="text-white xl:text-lg truncate"
+          :class="isActive && 'font-semibold'"
+        >
           {{ text }}
         </h4>
       </div>

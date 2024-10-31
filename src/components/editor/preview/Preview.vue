@@ -9,7 +9,7 @@
     :style="{ ...page.styles.page }"
   >
     <Hero />
-    <Methods />
+    <Methods :showModalDetail="() => (showModalDetail = true)" />
     <Footer />
   </aside>
 
@@ -29,6 +29,8 @@
   >
     <IconClose class="size-6 text-white" />
   </MainButton>
+
+  <Modal v-show="showModalDetail" @close="showModalDetail = false" />
 </template>
 
 <script setup lang="ts">
@@ -42,8 +44,10 @@ import IconClose from "@/components/icons/IconClose.vue";
 import Hero from "./Hero.vue";
 import Methods from "./Methods.vue";
 import Footer from "./Footer.vue";
+import Modal from "./Modal.vue";
 
 const showModalPreview = ref<boolean>(false);
+const showModalDetail = ref<boolean>(false);
 
 const editorStore = useEditor();
 const { page } = storeToRefs(editorStore);

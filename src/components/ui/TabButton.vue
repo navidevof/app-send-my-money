@@ -1,7 +1,7 @@
 <template>
   <button
     class="py-2 px-4 rounded-lg hover:bg-custom-black-3 flex items-center gap-x-2 transition duration-200"
-    :class="isActive ? 'bg-custom-black-3' : ''"
+    :class="isActive ? 'bg-custom-black-3 text-white' : 'hover:text-white'"
     @click="emit('click')"
     name="tab"
     @dblclick="emit('dbclick')"
