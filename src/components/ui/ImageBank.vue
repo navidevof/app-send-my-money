@@ -4,7 +4,7 @@
   >
     <img
       v-if="icon"
-      :src="icon"
+      :src="getImageUrl(icon)"
       alt="Bancolombia"
       loading="lazy"
       class="size-full aspect-square"
@@ -23,4 +23,8 @@ interface Props {
 }
 
 defineProps<Props>();
+
+function getImageUrl(name: string) {
+  return new URL(name, import.meta.url).href;
+}
 </script>
