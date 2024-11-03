@@ -24,7 +24,7 @@ interface Props {
 
 defineProps<Props>();
 
-function getImageUrl(name: string) {
-  return new URL(name, import.meta.url).href;
+function getImageUrl(url: string) {
+  return new URL(url.replaceAll("/src/assets", ""), import.meta.url).href;
 }
 </script>
