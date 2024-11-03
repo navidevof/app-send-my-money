@@ -12,23 +12,10 @@
         v-if="slotProps.value"
         class="flex gap-x-4 items-center !bg-custom-black-3"
       >
-        <div
-          class="aspect-square w-8 h-8 drop-shadow-black grid place-items-center rounded-lg overflow-hidden bg-white"
-        >
-          <img
-            v-if="slotProps.value.icon"
-            :alt="slotProps.value.label"
-            :src="slotProps.value.icon"
-            loading="lazy"
-            class="size-full aspect-square"
-            width="50"
-            height="50"
-          />
-          <IconBank v-else class="size-full text-custom-black-2 p-1" />
-        </div>
+        <ImageBank :icon="slotProps.value.icon" />
         <div>{{ slotProps.value.label }}</div>
       </div>
-      <div v-else class="flex gap-x-2 items-center !bg-custom-black-3">
+      <div v-else class="flex gap-x-4 items-center !bg-custom-black-3">
         <div
           class="aspect-square w-8 h-8 drop-shadow-black grid place-items-center rounded-lg overflow-hidden bg-white"
         >
@@ -39,20 +26,7 @@
     </template>
     <template #option="slotProps">
       <div class="flex gap-4 items-center w-full py-2">
-        <div
-          class="aspect-square size-7 drop-shadow-black grid place-items-center rounded-lg overflow-hidden bg-white"
-        >
-          <img
-            v-if="slotProps.option.icon"
-            :alt="slotProps.option.label"
-            :src="slotProps.option.icon"
-            loading="lazy"
-            class="size-full aspect-square"
-            width="50"
-            height="50"
-          />
-          <IconBank v-else class="size-full text-custom-black-2 p-1" />
-        </div>
+        <ImageBank :icon="slotProps.option.icon" />
         <div>{{ slotProps.option.label }}</div>
       </div>
     </template>
@@ -68,11 +42,12 @@ import Select from "primevue/select";
 import { METHODS } from "@/mocks/methods";
 
 import IconBank from "@/components/icons/IconBank.vue";
-import { useEditor } from "../store";
+import { usePage } from "../../../store/page";
 import { storeToRefs } from "pinia";
+import ImageBank from "@/components/ui/ImageBank.vue";
 
-const editorStore = useEditor();
-const { currentMethod, currentOption } = storeToRefs(editorStore);
+const pageStore = usePage();
+const { currentMethod, currentOption } = storeToRefs(pageStore);
 
 const methodTemplate = ref();
 

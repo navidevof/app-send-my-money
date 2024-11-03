@@ -16,9 +16,9 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { useEditor } from "@/components/editor/store";
+import { usePage } from "@/store/page";
 import ButtonMethod from "./ButtonMethod.vue";
-import { IMethod } from "@/interfaces/editor";
+import { IMethod } from "@/interfaces/page";
 
 interface Props {
   showModalDetail: () => void;
@@ -26,8 +26,8 @@ interface Props {
 
 const { showModalDetail } = defineProps<Props>();
 
-const editorStore = useEditor();
-const { page, currentMethod } = storeToRefs(editorStore);
+const pageStore = usePage();
+const { page, currentMethod } = storeToRefs(pageStore);
 
 const handleClick = (method: IMethod) => {
   currentMethod.value = method;

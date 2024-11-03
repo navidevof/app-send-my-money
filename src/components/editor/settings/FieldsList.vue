@@ -1,7 +1,7 @@
 <template>
   <aside class="flex flex-col gap-y-5">
     <div
-      class="flex flex-col gap-y-1"
+      class="flex flex-col gap-y-3"
       v-show="currentOption?.fields?.length"
       v-auto-animate="{ duration: 200 }"
     >
@@ -29,15 +29,15 @@
 
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
-import { useEditor } from "../store";
+import { usePage } from "../../../store/page";
 
 import IconPlus from "@/components/icons/IconPlus.vue";
 import MainButton from "@/components/ui/MainButton.vue";
 import Field from "./Field.vue";
-import { IField } from "@/interfaces/editor";
+import { IField } from "@/interfaces/page";
 
-const editorStore = useEditor();
-const { currentOption } = storeToRefs(editorStore);
+const pageStore = usePage();
+const { currentOption } = storeToRefs(pageStore);
 
 const onAddNewField = () => {
   currentOption.value?.fields.push({

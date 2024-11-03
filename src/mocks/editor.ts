@@ -1,4 +1,4 @@
-import { IMethod, IOption } from "@/interfaces/editor";
+import { IMethod, IOption } from "@/interfaces/page";
 
 export const newOption: () => IOption = () => ({
   id: `option-${Date.now()}`,

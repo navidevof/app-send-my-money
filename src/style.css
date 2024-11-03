@@ -56,6 +56,10 @@ body {
   font-display: swap;
 }
 
+body {
+  @apply bg-custom-black-1;
+}
+
 .custom-scroll {
   scrollbar-width: thin; /* Para navegadores compatibles */
   scrollbar-color: #0aaf4a #2c2c2c; /* Pulgar verde y fondo negro */
@@ -78,4 +82,8 @@ body {
     background-color: #0f6c34; /* Pulgar en hover (custom-green-2) */
     border-radius: 10px;
   }
+}
+
+.aspect-mobile {
+  aspect-ratio: 5/19.5;
 }

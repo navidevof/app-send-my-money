@@ -20,7 +20,7 @@
     <div class="flex flex-col w-full justify-center items-center gap-y-2">
       <label
         for="photo"
-        class="w-full rounded-full bg-custom-green-1 text-center text-white cursor-pointer py-3"
+        class="w-full rounded-full bg-custom-green-1 hover:bg-custom-green-2 duration-200 transition text-center text-white cursor-pointer py-3"
       >
         <input
           ref="fileInput"
@@ -51,19 +51,19 @@
       maxlength="20"
     />
     <small class="ml-auto text-sm mr-2 font-light text-white">
-      {{ page.displayName.length }}/20</small
-    >
+      {{ page.displayName.length }}/20
+    </small>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
-import { useEditor } from "@/components/editor/store";
+import { usePage } from "@/store/page";
 import MainButton from "@/components/ui/MainButton.vue";
 
-const editorStore = useEditor();
-const { page } = storeToRefs(editorStore);
+const pageStore = usePage();
+const { page, filePhoto } = storeToRefs(pageStore);
 const fileInput = ref<HTMLInputElement | null>(null);
 
 const uploadPhoto = (e: Event) => {
@@ -78,12 +78,14 @@ const uploadPhoto = (e: Event) => {
   }
 
   page.value.photo = URL.createObjectURL(file);
+  filePhoto.value = file;
 };
 
 const removePhoto = () => {
   page.value.photo = "";
+  filePhoto.value = undefined;
   if (fileInput.value) {
-    fileInput.value.value = ""; // Reinicia el input de archivo
+    fileInput.value.value = "";
   }
 };
 </script>

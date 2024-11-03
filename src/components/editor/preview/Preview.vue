@@ -1,6 +1,7 @@
 <template>
   <aside
-    class="flex flex-col lg:px-6 lg:py-7 gap-y-8 lg:max-w-lg h-[100dvh] lg:h-full lg:scale-100 fixed lg:translate-y-0 lg:opacity-100 lg:z-10 lg:relative transition duration-300 overflow-x-hidden mx-auto lg:max-h-[calc(100vh-180px)] overflow-y-auto w-full lg:rounded-3xl lg:border lg:bg-custom-black-2 border-white/50 lg:drop-shadow-green"
+    v-bind="$attrs"
+    class="flex flex-col lg:px-6 lg:py-7 gap-y-8 lg:max-w-sm h-[100dvh] aspect-[5/19.5] lg:h-full lg:scale-100 fixed lg:translate-y-0 lg:opacity-100 lg:z-10 lg:relative transition duration-300 overflow-x-hidden mx-auto lg:max-h-[calc(100vh-180px)] overflow-y-auto w-full lg:rounded-3xl lg:border lg:bg-custom-black-2 border-white/50 lg:drop-shadow-green"
     :class="
       showModalPreview
         ? 'top-0 z-20 left-0 scale-100 translate-y-0 opacity-100 px-10 pt-14 pb-10'
@@ -36,7 +37,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
-import { useEditor } from "../store";
+import { usePage } from "../../../store/page";
 
 import IconEye from "@/components/icons/IconEye.vue";
 import MainButton from "@/components/ui/MainButton.vue";
@@ -46,9 +47,13 @@ import Methods from "./Methods.vue";
 import Footer from "./Footer.vue";
 import Modal from "./Modal.vue";
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const showModalPreview = ref<boolean>(false);
 const showModalDetail = ref<boolean>(false);
 
-const editorStore = useEditor();
-const { page } = storeToRefs(editorStore);
+const pageStore = usePage();
+const { page } = storeToRefs(pageStore);
 </script>

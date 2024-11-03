@@ -1,4 +1,4 @@
-import { IMethodStyle, IPageStyle } from "./editor";
+import { IMethodStyle, IPageStyle } from "./page";
 
 export interface ITheme {
   name: string;

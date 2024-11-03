@@ -5,10 +5,10 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { useEditor } from "../store";
+import { usePage } from "../../../store/page";
 import Methods from "./methods/Methods.vue";
 import Appearance from "./appearence/Appearance.vue";
 
-const editorStore = useEditor();
-const { pageConfigCurrentTab } = storeToRefs(editorStore);
+const pageStore = usePage();
+const { pageConfigCurrentTab } = storeToRefs(pageStore);
 </script>

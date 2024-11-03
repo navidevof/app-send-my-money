@@ -6,29 +6,16 @@
       @click="emit('click')"
     >
       <div class="flex items-center gap-x-3">
-        <div
-          class="aspect-square w-8 h-8 drop-shadow-black grid place-items-center rounded-lg overflow-hidden bg-white"
-        >
-          <img
-            v-if="icon"
-            :src="icon"
-            alt="Bancolombia"
-            loading="lazy"
-            class="size-full aspect-square"
-            width="50"
-            height="50"
-          />
-          <IconBank v-else class="size-full text-custom-black-2 p-1" />
-        </div>
+        <ImageBank :icon="icon" />
         <h4
-          class="text-white xl:text-lg truncate"
+          class="text-white xl:text-lg line-clamp-1 w-full text-start overflow-hidden flex-1"
           :class="isActive && 'font-semibold'"
         >
           {{ text }}
         </h4>
       </div>
       <IconDrag
-        class="size-4"
+        class="size-4 min-w-4"
         :class="isActive ? 'text-white' : 'text-custom-green-1'"
       />
     </button>
@@ -36,15 +23,15 @@
       @click="emit('delete')"
       class="text-custom-red-1 text-sm font-light mr-auto ml-2"
     >
-      <IconTrash class="size-4 text-custom-red-1" />
+      <IconTrash class="size-5 min-w-5 text-custom-red-1" />
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
-import IconBank from "@/components/icons/IconBank.vue";
 import IconDrag from "@/components/icons/IconDrag.vue";
 import IconTrash from "@/components/icons/IconTrash.vue";
+import ImageBank from "@/components/ui/ImageBank.vue";
 
 interface Props {
   isActive?: boolean;

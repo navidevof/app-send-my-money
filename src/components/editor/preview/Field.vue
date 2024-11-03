@@ -24,8 +24,8 @@
 
 <script setup lang="ts">
 import IconCopy from "@/components/icons/IconCopy.vue";
-import { IField } from "@/interfaces/editor";
-import { useEditor } from "../store";
+import { IField } from "@/interfaces/page";
+import { usePage } from "../../../store/page";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 
@@ -35,8 +35,8 @@ interface Props {
 
 defineProps<Props>();
 
-const editorStore = useEditor();
-const { page } = storeToRefs(editorStore);
+const pageStore = usePage();
+const { page } = storeToRefs(pageStore);
 const isCopied = ref<boolean>(false);
 
 const handleCopy = (value: string) => {

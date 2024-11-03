@@ -16,7 +16,8 @@
         <IconClose class="size-6 text-white" />
       </MainButton>
     </header>
-    <aside class="flex flex-col gap-y-5" v-if="currentMethod">
+    <div class="h-px bg-white/50 drop-shadow-green w-full rounded-full" />
+    <aside class="flex flex-col gap-y-8" v-if="currentMethod">
       <label class="flex flex-col gap-y-1">
         <h4 class="md:text-lg font-medium text-white">Method</h4>
         <SelectMethod />
@@ -34,15 +35,15 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { useEditor } from "../store";
+import { usePage } from "../../../store/page";
 
 import SelectMethod from "./SelectMethod.vue";
 import DetailOption from "./DetailOption.vue";
 import MainButton from "@/components/ui/MainButton.vue";
 import IconClose from "@/components/icons/IconClose.vue";
 
-const editorStore = useEditor();
-const { currentMethod } = storeToRefs(editorStore);
+const pageStore = usePage();
+const { currentMethod } = storeToRefs(pageStore);
 
 const closeModal = () => {
   if (!currentMethod.value) return;

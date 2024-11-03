@@ -1,11 +1,6 @@
 <template>
   <header class="flex flex-col gap-y-2 justify-center items-center relative">
-    <MainButton
-      @click="share"
-      class="absolute !p-1 w-fit !bg-custom-black-3 border !size-9 overflow-clip border-white drop-shadow-green !rounded-lg -top-4 right-0 z-20"
-    >
-      <IconShare class="size-6 text-white" />
-    </MainButton>
+    <ShareButton :url="`page/${page.url}`" />
     <div
       class="rounded-full border-2 size-28 overflow-hidden border-white drop-shadow-black grid place-items-center"
     >
@@ -34,34 +29,18 @@
       <h1 class="font-bold text-xl md:text-2xl truncate w-fit max-w-[95%]">
         {{ page.displayName }}
       </h1>
-      <IconVerify class="size-6 min-w-6" />
+      <!-- <IconVerify class="size-6 min-w-6" /> -->
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { useEditor } from "@/components/editor/store";
+import { usePage } from "@/store/page";
 
-import MainButton from "@/components/ui/MainButton.vue";
-import IconShare from "@/components/icons/IconShare.vue";
-import IconVerify from "@/components/icons/IconVerify.vue";
+import ShareButton from "@/components/ui/ShareButton.vue";
+// import IconVerify from "@/components/icons/IconVerify.vue";
 
-const editorStore = useEditor();
-const { page } = storeToRefs(editorStore);
-
-const shareLink = `${window.location.protocol}//${window.location.host}`;
-
-const share = async () => {
-  try {
-    await navigator.share({
-      title: "💸 Find all my payment methods in one place!",
-      text: "Hi! Here’s a quick link to all my available payment methods. Feel free to choose the one that works best for you! 🌐💳",
-      url: shareLink,
-    });
-  } catch (error) {
-    console.error("Error sharing event:", error);
-    alert("Your browser does not support sharing functionality.");
-  }
-};
+const pageStore = usePage();
+const { page } = storeToRefs(pageStore);
 </script>

@@ -1,4 +1,17 @@
 export interface IPage {
+  pageId: string;
+  uid: string;
+  url: string;
+  displayName: string;
+  photo: string;
+  styles: IStyles;
+  methods: IMethod[];
+  createdAt: number;
+  updatedAt: number;
+}
+
+export interface IPageExternal {
+  url: string;
   displayName: string;
   photo: string;
   styles: IStyles;
@@ -39,11 +52,6 @@ export interface IPageStyle {
 
 export interface IMethodStyle {
   borderRadius?: string;
-  background?: string;
-  color?: string;
-}
-
-export interface IOptionStyle {
   background?: string;
   color?: string;
 }

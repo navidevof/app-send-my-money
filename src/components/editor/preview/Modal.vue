@@ -12,17 +12,21 @@
       >
         <IconClose class="size-6" />
       </button>
-      <h2 class="text-center uppercase font-bold text-lg lg:text-2xl">
-        {{ currentMethod?.name }}
-      </h2>
+      <div class="flex justify-center w-full items-center gap-x-2">
+        <ImageBank :icon="currentMethod?.icon" />
+        <h2 class="text-center uppercase font-bold text-lg lg:text-2xl">
+          {{ currentMethod?.name }}
+        </h2>
+      </div>
       <div
         class="flex gap-x-2 md:justify-center items-center overflow-x-auto custom-scroll"
+        ref="$tabs"
       >
         <TabButton
           v-for="option in currentMethod?.options"
           :key="option.id"
           :isActive="option === currentOption"
-          @click="currentOption = option"
+          @click="selectOption(option)"
           class="w-fit"
         >
           <h3
@@ -51,13 +55,45 @@
 </template>
 
 <script setup lang="ts">
+import { ref, nextTick } from "vue";
 import { storeToRefs } from "pinia";
-import { useEditor } from "../store";
+import { usePage } from "../../../store/page";
 import TabButton from "@/components/ui/TabButton.vue";
 import IconClose from "@/components/icons/IconClose.vue";
 import Field from "./Field.vue";
+import ImageBank from "@/components/ui/ImageBank.vue";
+import { IOption } from "@/interfaces/page";
 
-const editorStore = useEditor();
-const { page, currentMethod, currentOption } = storeToRefs(editorStore);
+const pageStore = usePage();
+const { page, currentMethod, currentOption } = storeToRefs(pageStore);
 const emit = defineEmits(["close"]);
+
+const $tabs = ref<HTMLElement>();
+
+function selectOption(option: IOption) {
+  currentOption.value = option;
+  nextTick(() => scrollToCenter(option));
+}
+
+function scrollToCenter(option: IOption) {
+  if (!currentMethod.value || !$tabs.value) return;
+
+  const optionIndex = currentMethod.value.options.findIndex(
+    (opt) => opt.id === option.id
+  );
+
+  const optionTab = $tabs.value.children[optionIndex] as HTMLElement;
+  const containerWidth = $tabs.value.clientWidth;
+  const optionTabWidth = optionTab.clientWidth;
+  const optionTabLeft = optionTab.offsetLeft;
+
+  // Calculate the position to center the selected tab
+  const scrollPosition =
+    optionTabLeft - containerWidth / 2 + optionTabWidth / 2;
+
+  $tabs.value.scrollTo({
+    left: scrollPosition,
+    behavior: "smooth",
+  });
+}
 </script>

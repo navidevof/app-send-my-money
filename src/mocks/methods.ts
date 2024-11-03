@@ -1,6 +1,7 @@
 import BancoDeBogotaImg from "@/assets/logos/banco-de-bogota.webp";
 import BancoDeOccidenteImg from "@/assets/logos/banco-de-occidente.webp";
 import BancolombiaImg from "@/assets/logos/bancolombia.webp";
+import AhorroALaManoImg from "@/assets/logos/bancolombia-ahorro-a-la-mano.webp";
 import BankOfAmericaImg from "@/assets/logos/bank-of-america.webp";
 import BbvaImg from "@/assets/logos/bbva.webp";
 import CashAppImg from "@/assets/logos/cash-app.webp";
@@ -20,6 +21,11 @@ import WellsFargoImg from "@/assets/logos/wells-fargo.webp";
 import ZelleImg from "@/assets/logos/zelle.webp";
 
 export const METHODS = [
+  {
+    label: "Ahorro a la mano",
+    value: "bancolombia-ahorro-a-la-mano",
+    icon: AhorroALaManoImg,
+  },
   {
     label: "Banco de bogota",
     value: "banco-de-bogota",
