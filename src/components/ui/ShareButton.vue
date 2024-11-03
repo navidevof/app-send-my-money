@@ -28,7 +28,6 @@ const share = async () => {
     });
   } catch (error) {
     console.error("Error sharing event:", error);
-    alert("Your browser does not support sharing functionality.");
   }
 };
 </script>

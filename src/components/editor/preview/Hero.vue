@@ -10,7 +10,6 @@
         class="object-cover object-center size-full absolute"
         alt="Profile photo"
         loading="eager"
-        decoding="async"
         fetchpriority="high"
         referrerpolicy="no-referrer"
         width="100%"
