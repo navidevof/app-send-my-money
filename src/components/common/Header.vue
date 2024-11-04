@@ -61,9 +61,11 @@ import { signOut } from "@/services/login";
 import { useUIStore } from "@/store/ui";
 import { useRouter } from "vue-router";
 import { MESSAGES } from "@/utils/messages";
+import { usePage } from "@/store/page";
 
 const router = useRouter();
 const uiStore = useUIStore();
+const pageStore = usePage();
 
 const showDropdown = ref<boolean>(false);
 
@@ -75,6 +77,7 @@ const onSignOut = async () => {
       return;
     }
 
+    pageStore.resetStore();
     router.push("/login");
   } catch (error) {
     uiStore.showAlert("error", MESSAGES.ERROR_DEFAULT);

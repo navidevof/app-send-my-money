@@ -2,6 +2,7 @@ import { TTab } from "@/interfaces/page";
 import { IMethod, IOption, IPage } from "@/interfaces/page";
 import { ITheme } from "@/interfaces/theme";
 import { newMethod } from "@/mocks/editor";
+import { INITIAL_PAGE } from "@/mocks/page";
 import { THEMES } from "@/utils/themes";
 import { defineStore } from "pinia";
 import { ref, watch } from "vue";
@@ -10,73 +11,7 @@ export const usePage = defineStore(
   "page",
   () => {
     const TABS = ref<TTab[]>(["Methods", "Appearance"]);
-    const page = ref<IPage>({
-      uid: "",
-      pageId: "",
-      url: "",
-      displayName: "",
-      photo: "",
-      createdAt: 0,
-      updatedAt: 0,
-      styles: {
-        page: {
-          background: "#000000",
-          color: "#ffffff",
-        },
-        method: {
-          background: "#000000",
-          color: "#ffffff",
-          borderRadius: "0.5rem",
-        },
-      },
-      methods: [
-        {
-          id: "method-1",
-          template: "new-method",
-          icon: "",
-          name: "New method",
-          options: [
-            {
-              id: "new-option",
-              name: "New option",
-              haveQr: false,
-              qrUrl: "",
-              fields: [],
-            },
-          ],
-        },
-        {
-          id: "method-2",
-          template: "new-method",
-          icon: "",
-          name: "New method",
-          options: [
-            {
-              id: "new-option",
-              name: "New option",
-              haveQr: false,
-              qrUrl: "",
-              fields: [],
-            },
-          ],
-        },
-        {
-          id: "method-3",
-          template: "new-method",
-          icon: "",
-          name: "New method",
-          options: [
-            {
-              id: "new-option",
-              name: "New option",
-              haveQr: false,
-              qrUrl: "",
-              fields: [],
-            },
-          ],
-        },
-      ],
-    });
+    const page = ref<IPage>({ ...INITIAL_PAGE });
 
     const pageConfigCurrentTab = ref<string>(TABS.value[0]);
     const currentMethod = ref<IMethod>();
@@ -102,6 +37,11 @@ export const usePage = defineStore(
       pageConfigCurrentTab.value = TABS.value[0];
     };
 
+    const resetStore = () => {
+      initPage();
+      page.value = { ...INITIAL_PAGE };
+    };
+
     watch(
       () => page.value,
       () => {
@@ -122,6 +62,7 @@ export const usePage = defineStore(
       initPage,
       onAddNewMethod,
       loadTheme,
+      resetStore,
     };
   },
   { persist: true }
