@@ -19,7 +19,7 @@ interface Props {
 const { url, open } = defineProps<Props>();
 
 const share = async () => {
-  const shareLink = `${window.location.protocol}//${window.location.host}/${url}`;
+  const shareLink = `${window.location.protocol}//${window.location.host}${url}`;
 
   if (open) {
     window.open(shareLink, "_blank");

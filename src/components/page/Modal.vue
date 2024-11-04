@@ -21,6 +21,7 @@
       <div
         class="flex gap-x-2 md:justify-center items-center overflow-x-auto custom-scroll"
         ref="$tabs"
+        v-show="method?.options.length > 1"
       >
         <TabButton
           v-for="option in method?.options"

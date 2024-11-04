@@ -7,11 +7,17 @@
       Sign up. It's free!
     </h2>
     <aside class="w-11/12 mx-auto mt-5 flex flex-col gap-y-4 items-center">
-      <input type="text" placeholder="Your name" v-model="register.username" />
+      <input
+        type="text"
+        placeholder="Your name"
+        v-model="register.username"
+        required
+      />
       <input
         type="email"
         placeholder="Email Address"
         v-model="register.email"
+        required
       />
       <input
         type="password"
@@ -20,6 +26,7 @@
         minlength="6"
         pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&.]{6,}"
         title="The password must be at least 6 characters long, include an uppercase letter, a lowercase letter, and a number."
+        required
       />
       <MainButton class="mt-5 text-white"> Sign up </MainButton>
 
