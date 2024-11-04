@@ -21,7 +21,9 @@
         @submit.prevent="handleSubmit"
         class="flex flex-col w-11/12 mx-auto max-w-lg rounded-2xl bg-custom-black-2 pt-8 pb-9 drop-shadow-green"
       >
-        <h2 class="text-white text-center text-xl font-semibold">Login</h2>
+        <h2 class="text-white text-center text-xl font-semibold">
+          Let the magic begin
+        </h2>
         <aside class="w-11/12 mx-auto mt-5 flex flex-col gap-y-4 items-center">
           <input
             type="email"
@@ -36,12 +38,12 @@
             required
           />
           <MainButton class="mt-4 text-white"> Sign in </MainButton>
-          <router-link
+          <!-- <router-link
             to="/"
             class="text-end w-full text-white/70 -mt-2 text-sm hover:underline font-medium hover:text-white transition duration-200"
           >
             Forgot password?
-          </router-link>
+          </router-link> -->
 
           <router-link
             to="/register"

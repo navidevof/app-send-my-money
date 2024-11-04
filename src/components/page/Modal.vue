@@ -14,7 +14,7 @@
       </button>
       <div class="flex justify-center w-full items-center gap-x-2">
         <ImageBank :icon="method?.icon" />
-        <h2 class="text-center uppercase font-bold text-lg lg:text-2xl">
+        <h2 class="text-center uppercase font-bold md:text-lg">
           {{ method?.name }}
         </h2>
       </div>

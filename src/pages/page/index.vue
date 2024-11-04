@@ -7,7 +7,7 @@
     }"
   >
     <section
-      class="flex flex-col aspect-mobile max-w-sm mx-auto w-11/12 h-full gap-y-8"
+      class="flex flex-col aspect-mobile max-w-lg mx-auto w-11/12 h-full gap-y-8"
     >
       <Hero
         :photo="page?.photo"
