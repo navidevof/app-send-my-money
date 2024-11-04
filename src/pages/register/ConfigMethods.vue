@@ -8,14 +8,27 @@
     >
       Select your payment methods
     </h2>
-    <aside class="w-11/12 mx-auto mt-5 flex flex-col gap-y-4 items-center">
+    <aside
+      class="w-11/12 mx-auto mt-5 flex flex-col gap-y-4 items-center"
+      v-auto-animate="{ duration: 200 }"
+    >
       <SelectMethod
         v-for="(method, idx) in page.methods"
         :key="method.id"
         @change="(option: any) => onChange({ selectedOption: option, methodIdx: idx })"
         :method="method"
+        @delete="() => onDelete(idx)"
       />
       <BannerInfo text="You can add or remove at any time!" class="mt-3" />
+      <MainButton
+        type="button"
+        v-if="page.methods.length < 3"
+        @click="onAdd"
+        class="text-white"
+      >
+        <IconPlus class="size-5" />
+        Add method
+      </MainButton>
       <MainButton class="mt-4 text-white"> Continue </MainButton>
 
       <router-link
@@ -42,6 +55,8 @@ import { useRegister } from "@/store/register";
 import { useUIStore } from "@/store/ui";
 import { MESSAGES } from "@/utils/messages";
 import { signIn } from "@/services/login";
+import { newMethod } from "@/mocks/editor";
+import IconPlus from "@/components/icons/IconPlus.vue";
 
 const uiStore = useUIStore();
 const pageStore = usePage();
@@ -64,6 +79,14 @@ const onChange = ({
   page.value.methods[methodIdx].icon = selectedOption.icon;
   page.value.methods[methodIdx].name = selectedOption.label;
   page.value.methods[methodIdx].template = selectedOption.value;
+};
+
+const onDelete = (idx: number) => {
+  page.value.methods.splice(idx, 1);
+};
+
+const onAdd = () => {
+  page.value.methods.push(newMethod());
 };
 
 const handleSubmit = async () => {
