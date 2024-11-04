@@ -29,11 +29,12 @@ const createAccount = async ({
       data,
     };
   } catch (error) {
+    console.log({ error });
     return {
       error: true,
       message: responseError({
         error,
-        defaultMessage: "Error creating account",
+        defaultMessage: JSON.stringify(error),
       }),
       data: null,
     };
