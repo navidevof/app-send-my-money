@@ -34,7 +34,7 @@ const createAccount = async ({
       error: true,
       message: responseError({
         error,
-        defaultMessage: JSON.stringify(error),
+        defaultMessage: "Error creating account",
       }),
       data: null,
     };

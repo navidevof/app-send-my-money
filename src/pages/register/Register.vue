@@ -17,6 +17,9 @@
         type="password"
         placeholder="Choose a password"
         v-model="register.password"
+        minlength="6"
+        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&.]{6,}"
+        title="The password must be at least 6 characters long, include an uppercase letter, a lowercase letter, and a number."
       />
       <MainButton class="mt-5 text-white"> Sign up </MainButton>
 
