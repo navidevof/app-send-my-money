@@ -26,7 +26,8 @@
   <Modal
     v-if="currenMethod"
     :method="currenMethod"
-    :style="page?.styles.page ?? {}"
+    :pageStyle="page?.styles.page ?? {}"
+    :methodStyle="page?.styles.method ?? {}"
     @close="currenMethod = undefined"
   />
 

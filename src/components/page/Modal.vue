@@ -3,8 +3,8 @@
     class="fixed inset-0 z-50 flex items-center justify-center bg-custom-black-1/50 backdrop-blur-xl transition duration-200"
   >
     <div
-      class="flex flex-col max-w-2xl rounded-3xl py-11 px-5 bg-white drop-shadow-white w-10/12 gap-y-7 relative"
-      :style="{ ...style }"
+      class="flex flex-col max-w-2xl rounded-3xl py-11 px-5 bg-white drop-shadow-green border border-white/50 w-11/12 gap-y-7 relative"
+      :style="{ ...pageStyle }"
     >
       <button
         class="absolute top-4 right-4 lg:top-8 lg:right-8"
@@ -36,12 +36,15 @@
           </h3>
         </TabButton>
       </div>
-      <div class="flex flex-col gap-y-4 w-full">
+      <div
+        class="flex flex-col gap-y-4 w-full"
+        v-auto-animate="{ duration: 200 }"
+      >
         <Field
           v-for="field in currentOption?.fields"
           :key="field.id"
           :field="field"
-          :style="style"
+          :style="methodStyle"
         />
         <span
           v-show="!currentOption?.fields.length"
@@ -61,11 +64,12 @@ import TabButton from "@/components/ui/TabButton.vue";
 import IconClose from "@/components/icons/IconClose.vue";
 import Field from "./Field.vue";
 import ImageBank from "@/components/ui/ImageBank.vue";
-import { IMethod, IOption, IPageStyle } from "@/interfaces/page";
+import { IMethod, IMethodStyle, IOption, IPageStyle } from "@/interfaces/page";
 const emit = defineEmits(["close"]);
 
 interface Props {
-  style: IPageStyle;
+  pageStyle: IPageStyle;
+  methodStyle: IMethodStyle;
   method: IMethod;
 }
 

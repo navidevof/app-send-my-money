@@ -13,13 +13,19 @@ import MainButton from "./MainButton.vue";
 
 interface Props {
   url: string;
+  open?: boolean;
 }
 
-const { url } = defineProps<Props>();
-
-const shareLink = `${window.location.protocol}//${window.location.host}/${url}`;
+const { url, open } = defineProps<Props>();
 
 const share = async () => {
+  const shareLink = `${window.location.protocol}//${window.location.host}/${url}`;
+
+  if (open) {
+    window.open(shareLink, "_blank");
+    return;
+  }
+
   try {
     await navigator.share({
       title: "💸 Find all my payment methods in one place!",

@@ -31,7 +31,7 @@
 
         <div
           v-show="showDropdown"
-          class="absolute z-30 top-full gap-y-3 min-w-48 text-start right-0 mt-2 rounded-2xl py-3 flex flex-col bg-custom-black-2 drop-shadow-green border border-white/70"
+          class="absolute z-30 top-full gap-y-3 min-w-48 text-start right-0 mt-2 rounded-2xl py-3 flex flex-col bg-custom-black-2 drop-shadow-green border border-white/50"
         >
           <div class="w-10/12 mx-auto flex flex-col gap-y-2 text-white">
             <span>Account</span>
