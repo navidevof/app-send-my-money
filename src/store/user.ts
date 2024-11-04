@@ -1,11 +1,19 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-export const useUser = defineStore("user", () => {
-  const user = ref<any>({
-    username: "",
-    email: "",
-  });
+export const useUser = defineStore(
+  "user",
+  () => {
+    const finishRegister = ref<boolean>(false);
 
-  return { user };
-});
+    const user = ref<any>({
+      username: "",
+      email: "",
+    });
+
+    return { user, finishRegister };
+  },
+  {
+    persist: true,
+  }
+);

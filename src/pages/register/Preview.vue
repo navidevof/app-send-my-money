@@ -85,9 +85,12 @@ import { onMounted } from "vue";
 import { usePage } from "@/store/page";
 import { storeToRefs } from "pinia";
 import router from "@/router";
+import { useUser } from "@/store/user";
 
 const pageStore = usePage();
+const userStore = useUser();
 const { page } = storeToRefs(pageStore);
+const { finishRegister } = storeToRefs(userStore);
 
 onMounted(() => {
   if (!page.value) {
@@ -95,7 +98,10 @@ onMounted(() => {
     return;
   }
 
+  if (finishRegister.value) return router.push("/");
+
   const confetti = new JSConfetti();
   confetti.addConfetti();
+  finishRegister.value = true;
 });
 </script>
