@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-y-3 w-full sticky top-0 z-10">
     <MainButton @click="onSave" :disabled="!unsavedChanges">
       <IconSave class="size-6 text-white" />
-      <span class="text-lg font-semibold text-white"> Save </span>
+      <span class="text-lg font-semibold text-white"> Publish </span>
     </MainButton>
     <MainButton
       @click="pageStore.onAddNewMethod"
