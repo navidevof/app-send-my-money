@@ -19,7 +19,7 @@
         :styles="page?.styles.method ?? {}"
         @setMethod="(method) => (currenMethod = method)"
       />
-      <Footer />
+      <FooterPage />
     </section>
   </main>
 
@@ -43,10 +43,10 @@ import { useUIStore } from "@/store/ui";
 import { MESSAGES } from "@/utils/messages";
 import { storeToRefs } from "pinia";
 import Hero from "@/components/page/Hero.vue";
-import Footer from "@/components/page/Footer.vue";
 import Methods from "@/components/page/Methods.vue";
 import Modal from "@/components/page/Modal.vue";
 import Loader from "@/components/common/Loader.vue";
+import FooterPage from "@/components/common/FooterPage.vue";
 
 const route = useRoute();
 const uiStore = useUIStore();

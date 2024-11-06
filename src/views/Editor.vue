@@ -1,14 +1,18 @@
 <template>
-  <section
-    class="mx-auto gap-x-10 xl:gap-x-20 justify-center h-fit w-11/12 grid grid-cols-1 lg:grid-cols-3 py-10 relative max-w-screen-2xl"
-  >
-    <PageConfig class="min-h-[60vh]" />
-    <Preview class="min-h-[60vh]" />
-    <Settings class="min-h-[60vh]" />
+  <section class="flex flex-col gap-y-5 w-11/12 max-w-screen-2xl mx-auto py-10">
+    <GoToPage :url="page.url" />
+    <aside
+      class="gap-x-10 xl:gap-x-20 justify-center h-fit w-full grid grid-cols-1 lg:grid-cols-3 relative"
+    >
+      <PageConfig class="min-h-[50vh]" />
+      <Preview class="min-h-[50vh]" />
+      <Settings class="min-h-[50vh]" />
+    </aside>
   </section>
 </template>
 
 <script setup lang="ts">
+import GoToPage from "@/components/editor/common/GoToPage.vue";
 import PageConfig from "@/components/editor/pageConfig/PageConfig.vue";
 import Preview from "@/components/editor/preview/Preview.vue";
 import Settings from "@/components/editor/settings/Settings.vue";

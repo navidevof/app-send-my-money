@@ -11,7 +11,7 @@
   >
     <Hero />
     <Methods :showModalDetail="() => (showModalDetail = true)" />
-    <Footer />
+    <FooterPage />
   </aside>
 
   <MainButton
@@ -44,7 +44,7 @@ import MainButton from "@/components/ui/MainButton.vue";
 import IconClose from "@/components/icons/IconClose.vue";
 import Hero from "./Hero.vue";
 import Methods from "./Methods.vue";
-import Footer from "./Footer.vue";
+import FooterPage from "@/components/common/FooterPage.vue";
 import Modal from "./Modal.vue";
 
 defineOptions({

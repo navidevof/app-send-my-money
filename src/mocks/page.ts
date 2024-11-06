@@ -1,4 +1,5 @@
 import { IPage } from "@/interfaces/page";
+import { THEMES } from "@/utils/themes";
 
 export const INITIAL_PAGE = {
   uid: "",
@@ -8,17 +9,7 @@ export const INITIAL_PAGE = {
   photo: "",
   createdAt: 0,
   updatedAt: 0,
-  styles: {
-    page: {
-      background: "#000000",
-      color: "#ffffff",
-    },
-    method: {
-      background: "#000000",
-      color: "#ffffff",
-      borderRadius: "0.5rem",
-    },
-  },
+  styles: THEMES[0].styles,
   methods: [
     {
       id: "method-1",
