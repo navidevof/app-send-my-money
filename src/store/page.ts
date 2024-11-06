@@ -11,9 +11,11 @@ export const usePage = defineStore(
   "page",
   () => {
     const TABS = ref<TTab[]>(["Methods", "Appearance"]);
-    const page = ref<IPage>({ ...INITIAL_PAGE });
+    const page = ref<IPage>(JSON.parse(JSON.stringify(INITIAL_PAGE)));
 
-    const pageConfigCurrentTab = ref<string>(TABS.value[0]);
+    const pageConfigCurrentTab = ref<string>(
+      JSON.parse(JSON.stringify(TABS.value[0]))
+    );
     const currentMethod = ref<IMethod>();
     const currentOption = ref<IOption>();
     const currentTheme = ref<ITheme>(JSON.parse(JSON.stringify(THEMES[0])));

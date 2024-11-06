@@ -66,6 +66,7 @@ onMounted(async () => {
     }
 
     page.value = res.data;
+    document.title = page.value.displayName;
   } catch (error) {
     uiStore.showAlert("error", MESSAGES.ERROR_DEFAULT);
     console.log({ error });
