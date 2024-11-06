@@ -8,15 +8,17 @@
 </template>
 
 <script setup lang="ts">
+import { MESSAGES } from "@/utils/messages";
 import IconShare from "../icons/IconShare.vue";
 import MainButton from "./MainButton.vue";
 
 interface Props {
   url: string;
   open?: boolean;
+  message?: string;
 }
 
-const { url, open } = defineProps<Props>();
+const { url, message, open } = defineProps<Props>();
 
 const share = async () => {
   const shareLink = `${window.location.protocol}//${window.location.host}${url}`;
@@ -28,8 +30,8 @@ const share = async () => {
 
   try {
     await navigator.share({
-      title: "💸 Find all my payment methods in one place!",
-      text: "Hi! Here’s a quick link to all my available payment methods. Feel free to choose the one that works best for you! 🌐💳",
+      title: "SMM 💰",
+      text: message ?? MESSAGES.SHARE_DEFAULT,
       url: shareLink,
     });
   } catch (error) {

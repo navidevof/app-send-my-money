@@ -1,6 +1,6 @@
 <template>
   <header class="flex flex-col gap-y-2 justify-center items-center relative">
-    <ShareButton v-show="url" :url="`/page/${url}`" />
+    <ShareButton v-show="url" :url="`/page/${url}`" :message="messageToShare" />
     <div
       class="rounded-full border-2 size-28 overflow-hidden border-white drop-shadow-black grid place-items-center"
     >
@@ -41,6 +41,7 @@ interface Props {
   photo?: string;
   displayName?: string;
   url?: string;
+  messageToShare?: string;
 }
 
 const { photo, displayName } = defineProps<Props>();

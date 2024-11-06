@@ -3,6 +3,7 @@ export interface IPage {
   uid: string;
   url: string;
   displayName: string;
+  messageToShare?: string;
   photo: string;
   styles: IStyles;
   methods: IMethod[];
@@ -13,6 +14,7 @@ export interface IPage {
 export interface IPageExternal {
   url: string;
   displayName: string;
+  messageToShare?: string;
   photo: string;
   styles: IStyles;
   methods: IMethod[];

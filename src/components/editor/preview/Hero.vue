@@ -1,6 +1,10 @@
 <template>
   <header class="flex flex-col gap-y-2 justify-center items-center relative">
-    <ShareButton v-show="page.url" :url="`/page/${page.url}`" />
+    <ShareButton
+      v-show="page.url"
+      :url="`/page/${page.url}`"
+      :message="page.messageToShare"
+    />
     <div
       class="rounded-full border-2 size-28 overflow-hidden border-white drop-shadow-black grid place-items-center"
     >

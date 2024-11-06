@@ -13,6 +13,7 @@
         :photo="page?.photo"
         :displayName="page?.displayName"
         :url="page?.url"
+        :messageToShare="page?.messageToShare"
       />
       <Methods
         :methods="page?.methods ?? []"
