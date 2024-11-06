@@ -3,14 +3,15 @@
     class="bg-custom-black-3 flex md:flex-row flex-col gap-y-4 justify-between items-center drop-shadow-green border text-sm md:text-base border-white/50 rounded-2xl px-4 py-4 md:py-2 text-white"
   >
     <p class="w-full md:w-fit md:text-start text-center">
-      <strong>🔥 Your SMM is ready in: </strong>
+      <strong class="md:inline-block block">🔥 Your SMM is ready in: </strong
+      >{{ " " }}
       <a
         class="underline font-light transition duration-200 hover:text-custom-green-1"
         :href="urlPage"
         target="_blank"
         rel="noopener noreferrer"
       >
-        {{ urlPage }}
+        {{ url }}
       </a>
     </p>
     <MainButton
