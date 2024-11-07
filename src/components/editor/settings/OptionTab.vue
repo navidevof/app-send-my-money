@@ -33,7 +33,7 @@
     <input
       ref="$inputRef"
       v-show="showInput && isActive"
-      class="w-fit max-w-28 bg-custom-black-3 text-white"
+      class="w-fit max-w-36 bg-custom-black-3 text-white"
       type="text"
       :autofocus="showInput"
       v-model="option.name"

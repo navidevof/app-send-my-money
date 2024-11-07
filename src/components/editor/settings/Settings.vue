@@ -16,7 +16,9 @@
         <IconClose class="size-6 text-white" />
       </MainButton>
     </header>
-    <div class="h-px bg-white/50 drop-shadow-green w-full rounded-full" />
+    <div
+      class="h-px min-h-px bg-white/50 drop-shadow-green w-full rounded-full"
+    />
     <aside class="flex flex-col gap-y-8" v-if="currentMethod">
       <label class="flex flex-col gap-y-1">
         <h4 class="md:text-lg font-medium text-white">Method</h4>
