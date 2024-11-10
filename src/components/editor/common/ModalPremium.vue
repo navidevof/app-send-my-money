@@ -40,7 +40,7 @@
             Pro is just $22,000 COP/month once your trial's up. You can cancel
             any time!
           </span>
-          <MainButton class="sticky bottom-0 left-0">
+          <MainButton @click="goToPayment" class="sticky bottom-0 left-0">
             Try Pro for Free ✨
           </MainButton>
         </div>
@@ -66,5 +66,14 @@ import { useEditor } from "@/store/editor";
 import { storeToRefs } from "pinia";
 
 const editorStore = useEditor();
-const { showModalPremium } = storeToRefs(editorStore);
+const { showModalPremium, page } = storeToRefs(editorStore);
+
+const goToPayment = () => {
+  window.open(
+    `https://sendmymoney.lemonsqueezy.com/buy/4b8a3d11-0f38-4c9a-8431-3d90572e4645?checkout[custom][uid]=${page.value.uid}`,
+    "_blank"
+  );
+
+  showModalPremium.value = false;
+};
 </script>
