@@ -70,7 +70,7 @@ const { showModalPremium, page } = storeToRefs(editorStore);
 
 const goToPayment = () => {
   window.open(
-    `https://sendmymoney.lemonsqueezy.com/buy/4b8a3d11-0f38-4c9a-8431-3d90572e4645?checkout[custom][uid]=${page.value.uid}`,
+    `https://sendmymoney.lemonsqueezy.com/buy/3633e537-05c5-4155-a9aa-6c046eb4024e?checkout[custom][uid]=${page.value.uid}`,
     "_blank"
   );
 
