@@ -42,12 +42,12 @@ import Select from "primevue/select";
 import { METHODS } from "@/mocks/methods";
 
 import IconBank from "@/components/icons/IconBank.vue";
-import { usePage } from "../../../store/page";
+import { useEditor } from "../../../store/editor";
 import { storeToRefs } from "pinia";
 import ImageBank from "@/components/ui/ImageBank.vue";
 
-const pageStore = usePage();
-const { currentMethod, currentOption } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { currentMethod, currentOption } = storeToRefs(editorStore);
 
 const methodTemplate = ref();
 

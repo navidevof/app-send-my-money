@@ -9,6 +9,7 @@ export interface IPage {
   methods: IMethod[];
   createdAt: number;
   updatedAt: number;
+  plan?: IPlan;
 }
 
 export interface IPageExternal {
@@ -18,6 +19,12 @@ export interface IPageExternal {
   photo: string;
   styles: IStyles;
   methods: IMethod[];
+  plan?: IPlan;
+}
+
+export interface IPlan {
+  isActive: boolean;
+  status: string;
 }
 
 export interface IMethod {

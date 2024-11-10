@@ -5,7 +5,7 @@
       <span class="text-lg font-semibold text-white"> Publish </span>
     </MainButton>
     <MainButton
-      @click="pageStore.onAddNewMethod"
+      @click="editorStore.onAddNewMethod"
       v-show="pageConfigCurrentTab === 'Methods'"
     >
       <IconPlus class="size-6 text-white" />
@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { usePage } from "../../../store/page";
+import { useEditor } from "../../../store/editor";
 import { storeToRefs } from "pinia";
 
 import MainButton from "@/components/ui/MainButton.vue";
@@ -26,9 +26,9 @@ import { useUIStore } from "@/store/ui";
 import { MESSAGES } from "@/utils/messages";
 
 const uiStore = useUIStore();
-const pageStore = usePage();
+const editorStore = useEditor();
 const { page, filePhoto, pageConfigCurrentTab, unsavedChanges } =
-  storeToRefs(pageStore);
+  storeToRefs(editorStore);
 const { isLoading } = storeToRefs(uiStore);
 
 const onSave = async () => {

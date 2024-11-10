@@ -9,23 +9,25 @@
       <Settings class="min-h-[50vh]" />
     </aside>
   </section>
+  <ModalPremium />
 </template>
 
 <script setup lang="ts">
 import GoToPage from "@/components/editor/common/GoToPage.vue";
+import ModalPremium from "@/components/editor/common/ModalPremium.vue";
 import PageConfig from "@/components/editor/pageConfig/PageConfig.vue";
 import Preview from "@/components/editor/preview/Preview.vue";
 import Settings from "@/components/editor/settings/Settings.vue";
 import { getPage } from "@/services/pages";
-import { usePage } from "@/store/page";
+import { useEditor } from "@/store/editor";
 import { useUIStore } from "@/store/ui";
 import { MESSAGES } from "@/utils/messages";
 import { storeToRefs } from "pinia";
 import { onBeforeUnmount, onMounted } from "vue";
 
 const uiStore = useUIStore();
-const pageStore = usePage();
-const { page, unsavedChanges } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { page, unsavedChanges } = storeToRefs(editorStore);
 const { isLoading } = storeToRefs(uiStore);
 
 const warnBeforeUnload = (e: BeforeUnloadEvent) => {
@@ -45,7 +47,7 @@ onMounted(async () => {
     }
 
     page.value = res.data;
-    pageStore.initPage();
+    editorStore.initPage();
   } catch (error) {
     uiStore.showAlert("error", MESSAGES.ERROR_DEFAULT);
     console.log({ error });

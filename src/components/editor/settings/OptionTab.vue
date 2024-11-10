@@ -19,7 +19,7 @@
       @click="activateEdition"
     />
     <IconCopy
-      v-show="isActive && !showInput"
+      v-show="isActive && !showInput && page.plan?.isActive"
       class="size-5 text-custom-green-1"
       @click="onCopyOption"
     />
@@ -48,7 +48,7 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
 import { computed, ref, nextTick, watch } from "vue";
-import { usePage } from "../../../store/page";
+import { useEditor } from "../../../store/editor";
 
 import IconPencil from "@/components/icons/IconPencil.vue";
 import IconTrash from "@/components/icons/IconTrash.vue";
@@ -62,8 +62,8 @@ interface IProps {
 const { option } = defineProps<IProps>();
 const emit = defineEmits(["deleteOption", "duplicateOption"]);
 
-const pageStore = usePage();
-const { currentMethod, currentOption } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { currentMethod, currentOption, page } = storeToRefs(editorStore);
 const isActive = computed(() => currentOption.value?.id === option.id);
 
 const $inputRef = ref<HTMLInputElement>();

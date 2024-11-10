@@ -8,7 +8,7 @@
     >
       <button
         class="absolute top-4 right-4 lg:top-8 lg:right-8"
-        @click="emit('close')"
+        @click="handleClose"
       >
         <IconClose class="size-6" />
       </button>
@@ -46,6 +46,7 @@
           :key="field.id"
           :field="field"
           :style="methodStyle"
+          @copy="handleCopy"
         />
         <span
           v-show="!currentOption?.fields.length"
@@ -66,15 +67,22 @@ import IconClose from "@/components/icons/IconClose.vue";
 import Field from "./Field.vue";
 import ImageBank from "@/components/ui/ImageBank.vue";
 import { IMethod, IMethodStyle, IOption, IPageStyle } from "@/interfaces/page";
+import { createStatAction } from "@/services/stats";
+import { Action } from "@/interfaces/stat";
+import { usePage } from "@/store/page";
+import { storeToRefs } from "pinia";
 const emit = defineEmits(["close"]);
 
 interface Props {
+  url: string;
   pageStyle: IPageStyle;
   methodStyle: IMethodStyle;
   method: IMethod;
 }
 
-const { method } = defineProps<Props>();
+const pageStore = usePage();
+const { canAddCopyOptionStat } = storeToRefs(pageStore);
+const { method, url } = defineProps<Props>();
 
 const $tabs = ref<HTMLElement>();
 const currentOption = ref<IOption>();
@@ -82,11 +90,41 @@ const currentOption = ref<IOption>();
 onMounted(() => {
   if (method.options.length) {
     currentOption.value = method.options[0];
+    createStatAction({
+      action: Action.CLICK_METHOD_OPTION,
+      pageUrl: url,
+      metadata: {
+        method: {
+          methodTemplate: method.template,
+          methodName: method.name,
+          methodIcon: method.icon,
+          option: {
+            optionId: currentOption.value.id,
+            optionName: currentOption.value.name,
+          },
+        },
+      },
+    });
   }
 });
 
 function selectOption(option: IOption) {
   currentOption.value = option;
+  createStatAction({
+    action: Action.CLICK_METHOD_OPTION,
+    pageUrl: url,
+    metadata: {
+      method: {
+        methodTemplate: method.template,
+        methodName: method.name,
+        methodIcon: method.icon,
+        option: {
+          optionId: currentOption.value.id,
+          optionName: currentOption.value.name,
+        },
+      },
+    },
+  });
   nextTick(() => scrollToCenter(option));
 }
 
@@ -108,4 +146,27 @@ function scrollToCenter(option: IOption) {
     behavior: "smooth",
   });
 }
+
+const handleCopy = () => {
+  if (canAddCopyOptionStat.value) {
+    createStatAction({
+      action: Action.POSSIBLE_PAYMENT,
+      pageUrl: url,
+      metadata: {
+        method: {
+          methodTemplate: method.template,
+          methodName: method.name,
+          methodIcon: method.icon,
+        },
+      },
+    });
+
+    canAddCopyOptionStat.value = false;
+  }
+};
+
+const handleClose = () => {
+  emit("close");
+  canAddCopyOptionStat.value = true;
+};
 </script>

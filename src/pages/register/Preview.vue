@@ -82,14 +82,14 @@ import IconShare from "@/components/icons/IconShare.vue";
 import ImageBank from "@/components/ui/ImageBank.vue";
 import MainButton from "@/components/ui/MainButton.vue";
 import { onMounted } from "vue";
-import { usePage } from "@/store/page";
+import { useEditor } from "@/store/editor";
 import { storeToRefs } from "pinia";
 import router from "@/router";
 import { useUser } from "@/store/user";
 
-const pageStore = usePage();
+const editorStore = useEditor();
 const userStore = useUser();
-const { page } = storeToRefs(pageStore);
+const { page } = storeToRefs(editorStore);
 const { finishRegister } = storeToRefs(userStore);
 
 onMounted(() => {

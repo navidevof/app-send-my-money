@@ -37,15 +37,15 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { usePage } from "../../../store/page";
+import { useEditor } from "../../../store/editor";
 
 import SelectMethod from "./SelectMethod.vue";
 import DetailOption from "./DetailOption.vue";
 import MainButton from "@/components/ui/MainButton.vue";
 import IconClose from "@/components/icons/IconClose.vue";
 
-const pageStore = usePage();
-const { currentMethod } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { currentMethod } = storeToRefs(editorStore);
 
 const closeModal = () => {
   if (!currentMethod.value) return;

@@ -57,4 +57,8 @@ export const INITIAL_PAGE = {
       ],
     },
   ],
+  plan: {
+    isActive: false,
+    status: "canceled",
+  },
 } as IPage;

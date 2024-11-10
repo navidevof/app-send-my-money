@@ -6,7 +6,9 @@
         class="flex gap-x-2 items-center"
         @click="showInput = true"
       >
-        <h3 class="text-white font-medium">{{ field.label }}</h3>
+        <h3 class="text-white font-medium text-start line-clamp-1">
+          {{ field.label }}
+        </h3>
         <IconPencil class="size-5 text-custom-green-1 cursor-pointer" />
       </button>
       <input

@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
 import { onMounted, ref, nextTick } from "vue";
-import { usePage } from "../../../store/page";
+import { useEditor } from "../../../store/editor";
 import { newOption } from "@/mocks/editor";
 
 import MainButton from "@/components/ui/MainButton.vue";
@@ -31,12 +31,14 @@ import IconPlus from "@/components/icons/IconPlus.vue";
 import OptionTab from "./OptionTab.vue";
 import { IOption } from "@/interfaces/page";
 
-const pageStore = usePage();
-const { currentMethod, currentOption } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { page, currentMethod, currentOption, showModalPremium } =
+  storeToRefs(editorStore);
 const $tabs = ref<HTMLElement>();
 
 const addNewOption = async (option?: IOption) => {
   if (!currentMethod.value) return;
+  if (!page.value.plan?.isActive) return (showModalPremium.value = true);
 
   currentMethod.value?.options.push(option ?? newOption());
 

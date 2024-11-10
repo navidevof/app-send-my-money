@@ -18,9 +18,10 @@
       <Methods
         :methods="page?.methods ?? []"
         :styles="page?.styles.method ?? {}"
+        :url="page?.url ?? ''"
         @setMethod="(method) => (currenMethod = method)"
       />
-      <FooterPage />
+      <FooterPage v-if="!page?.plan?.isActive" />
     </section>
   </main>
 
@@ -29,6 +30,7 @@
     :method="currenMethod"
     :pageStyle="page?.styles.page ?? {}"
     :methodStyle="page?.styles.method ?? {}"
+    :url="page?.url ?? ''"
     @close="currenMethod = undefined"
   />
 
@@ -48,6 +50,8 @@ import Methods from "@/components/page/Methods.vue";
 import Modal from "@/components/page/Modal.vue";
 import Loader from "@/components/common/Loader.vue";
 import FooterPage from "@/components/common/FooterPage.vue";
+import { createStatAction } from "@/services/stats";
+import { Action } from "@/interfaces/stat";
 
 const route = useRoute();
 const uiStore = useUIStore();
@@ -68,6 +72,10 @@ onMounted(async () => {
 
     page.value = res.data;
     document.title = page.value.displayName;
+    createStatAction({
+      action: Action.OPEN_PAGE,
+      pageUrl: url,
+    });
   } catch (error) {
     uiStore.showAlert("error", MESSAGES.ERROR_DEFAULT);
     console.log({ error });

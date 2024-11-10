@@ -29,7 +29,10 @@
       </div>
     </div>
     <div class="flex justify-center items-center gap-x-1 w-11/12 mx-auto">
-      <h1 class="font-bold text-xl md:text-2xl truncate w-fit max-w-[95%]">
+      <h1
+        class="font-bold text-xl md:text-2xl truncate w-fit max-w-[95%]"
+        translate="no"
+      >
         {{ page.displayName }}
       </h1>
       <!-- <IconVerify class="size-6 min-w-6" /> -->
@@ -39,11 +42,11 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { usePage } from "@/store/page";
+import { useEditor } from "@/store/editor";
 
 import ShareButton from "@/components/ui/ShareButton.vue";
 // import IconVerify from "@/components/icons/IconVerify.vue";
 
-const pageStore = usePage();
-const { page } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { page } = storeToRefs(editorStore);
 </script>

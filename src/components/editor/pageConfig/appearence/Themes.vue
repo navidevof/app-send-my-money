@@ -18,16 +18,16 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { usePage } from "@/store/page";
+import { useEditor } from "@/store/editor";
 import { THEMES } from "@/utils/themes";
 import ButtonTheme from "./ButtonTheme.vue";
 import { ITheme } from "@/interfaces/theme";
 
-const pageStore = usePage();
-const { currentTheme } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { currentTheme } = storeToRefs(editorStore);
 
 const selectTheme = (theme: ITheme) => {
   currentTheme.value = theme;
-  pageStore.loadTheme();
+  editorStore.loadTheme();
 };
 </script>

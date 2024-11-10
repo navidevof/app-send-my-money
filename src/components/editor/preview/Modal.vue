@@ -3,7 +3,7 @@
     class="fixed inset-0 z-50 flex items-center justify-center bg-custom-black-1/50 backdrop-blur-xl transition duration-200"
   >
     <div
-      class="flex flex-col max-w-2xl rounded-3xl py-11 px-5 bg-white drop-shadow-white w-10/12 gap-y-7 relative"
+      class="flex flex-col max-w-2xl rounded-3xl py-11 px-5 bg-white drop-shadow-green border border-white/50 w-11/12 gap-y-7 relative"
       :style="{ ...page.styles.page }"
     >
       <button
@@ -58,15 +58,15 @@
 <script setup lang="ts">
 import { ref, nextTick } from "vue";
 import { storeToRefs } from "pinia";
-import { usePage } from "../../../store/page";
+import { useEditor } from "../../../store/editor";
 import TabButton from "@/components/ui/TabButton.vue";
 import IconClose from "@/components/icons/IconClose.vue";
 import Field from "./Field.vue";
 import ImageBank from "@/components/ui/ImageBank.vue";
 import { IOption } from "@/interfaces/page";
 
-const pageStore = usePage();
-const { page, currentMethod, currentOption } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { page, currentMethod, currentOption } = storeToRefs(editorStore);
 const emit = defineEmits(["close"]);
 
 const $tabs = ref<HTMLElement>();

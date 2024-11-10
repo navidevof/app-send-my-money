@@ -29,15 +29,15 @@
 
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
-import { usePage } from "../../../store/page";
+import { useEditor } from "../../../store/editor";
 
 import IconPlus from "@/components/icons/IconPlus.vue";
 import MainButton from "@/components/ui/MainButton.vue";
 import Field from "./Field.vue";
 import { IField } from "@/interfaces/page";
 
-const pageStore = usePage();
-const { currentOption } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { currentOption } = storeToRefs(editorStore);
 
 const onAddNewField = () => {
   currentOption.value?.fields.push({

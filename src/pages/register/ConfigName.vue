@@ -63,14 +63,14 @@ import IconLoader from "@/components/icons/IconLoader.vue";
 import IconCircleCheck from "@/components/icons/IconCircleCheck.vue";
 import { useRouter } from "vue-router";
 import IconCircleClose from "@/components/icons/IconCircleClose.vue";
-import { usePage } from "@/store/page";
+import { useEditor } from "@/store/editor";
 import { storeToRefs } from "pinia";
 import { useRegister } from "@/store/register";
 import { verifyUrlPage } from "@/services/pages";
 
-const pageStore = usePage();
+const editorStore = useEditor();
 const registerStore = useRegister();
-const { page } = storeToRefs(pageStore);
+const { page } = storeToRefs(editorStore);
 const { register } = storeToRefs(registerStore);
 
 const router = useRouter();

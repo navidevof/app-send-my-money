@@ -4,11 +4,12 @@
     v-auto-animate="{ duration: 200 }"
   >
     <ButtonMethod
-      v-for="method in page.methods"
+      v-for="(method, idx) in page.methods"
       :key="method.id"
       :text="method.name"
       :icon="method.icon"
       :style="page.styles.method"
+      v-show="page.plan?.isActive || idx < 3"
       @click="() => handleClick(method)"
     />
   </aside>
@@ -16,7 +17,7 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { usePage } from "@/store/page";
+import { useEditor } from "@/store/editor";
 import ButtonMethod from "./ButtonMethod.vue";
 import { IMethod } from "@/interfaces/page";
 
@@ -26,8 +27,8 @@ interface Props {
 
 const { showModalDetail } = defineProps<Props>();
 
-const pageStore = usePage();
-const { page, currentMethod } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { page, currentMethod } = storeToRefs(editorStore);
 
 const handleClick = (method: IMethod) => {
   currentMethod.value = method;

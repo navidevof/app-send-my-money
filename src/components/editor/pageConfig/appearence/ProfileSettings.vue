@@ -59,11 +59,11 @@
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
-import { usePage } from "@/store/page";
+import { useEditor } from "@/store/editor";
 import MainButton from "@/components/ui/MainButton.vue";
 
-const pageStore = usePage();
-const { page, filePhoto } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { page, filePhoto } = storeToRefs(editorStore);
 const fileInput = ref<HTMLInputElement | null>(null);
 
 const uploadPhoto = (e: Event) => {

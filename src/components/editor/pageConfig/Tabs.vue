@@ -22,9 +22,9 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { usePage } from "../../../store/page";
+import { useEditor } from "../../../store/editor";
 import TabButton from "@/components/ui/TabButton.vue";
 
-const pageStore = usePage();
-const { TABS, pageConfigCurrentTab } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { TABS, pageConfigCurrentTab } = storeToRefs(editorStore);
 </script>

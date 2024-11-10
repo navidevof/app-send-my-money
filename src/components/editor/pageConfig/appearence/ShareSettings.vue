@@ -13,12 +13,12 @@
 
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
-import { usePage } from "@/store/page";
+import { useEditor } from "@/store/editor";
 import { onMounted } from "vue";
 import { MESSAGES } from "@/utils/messages";
 
-const pageStore = usePage();
-const { page } = storeToRefs(pageStore);
+const editorStore = useEditor();
+const { page } = storeToRefs(editorStore);
 
 onMounted(() => {
   page.value.messageToShare =

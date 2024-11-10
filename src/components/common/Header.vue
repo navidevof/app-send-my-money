@@ -31,12 +31,21 @@
 
         <div
           v-show="showDropdown"
-          class="absolute z-30 top-full gap-y-3 min-w-48 text-start right-0 mt-2 rounded-2xl py-3 flex flex-col bg-custom-black-2 drop-shadow-green border border-white/50"
+          class="absolute z-30 top-full gap-y-3 min-w-48 w-fit text-start right-0 mt-2 rounded-2xl py-3 flex flex-col bg-custom-black-2 drop-shadow-green border border-white/50"
         >
           <div class="w-10/12 mx-auto flex flex-col gap-y-2 text-white">
-            <span>Account</span>
-            <span>Settings</span>
-            <span>Upgrade to Pro</span>
+            <button class="text-nowrap text-sm flex items-center gap-2">
+              <span class="w-4">👤</span> Account persona
+            </button>
+            <button class="text-nowrap text-sm flex items-center gap-2">
+              <span class="w-4">⚙</span> Settings
+            </button>
+            <button class="text-nowrap text-sm flex items-center gap-2">
+              <span class="w-4">📊</span> Stats
+            </button>
+            <button class="text-nowrap text-sm flex items-center gap-2">
+              <span class="w-4">✨</span> Upgrade to Pro
+            </button>
           </div>
           <div class="h-px bg-white/70 w-full" />
           <button
@@ -44,7 +53,7 @@
             class="w-9/12 mx-auto flex items-center gap-x-1"
           >
             <IconSignOut class="size-5 text-custom-red-1" />
-            <span class="text-start text-custom-red-1 font-semibold">
+            <span class="text-start text-custom-red-1 font-semibold text-sm">
               Sing out
             </span>
           </button>
@@ -61,11 +70,11 @@ import { signOut } from "@/services/login";
 import { useUIStore } from "@/store/ui";
 import { useRouter } from "vue-router";
 import { MESSAGES } from "@/utils/messages";
-import { usePage } from "@/store/page";
+import { useEditor } from "@/store/editor";
 
 const router = useRouter();
 const uiStore = useUIStore();
-const pageStore = usePage();
+const editorStore = useEditor();
 
 const showDropdown = ref<boolean>(false);
 
@@ -77,7 +86,7 @@ const onSignOut = async () => {
       return;
     }
 
-    pageStore.resetStore();
+    editorStore.resetStore();
     router.push("/login");
   } catch (error) {
     uiStore.showAlert("error", MESSAGES.ERROR_DEFAULT);

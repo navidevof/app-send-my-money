@@ -20,9 +20,12 @@
         v-else
         class="size-full aspect-square place-items-center grid bg-custom-green-1"
       >
-        <strong class="uppercase font-semibold text-5xl text-white">{{
-          displayName?.charAt(0)
-        }}</strong>
+        <strong
+          class="uppercase font-semibold text-5xl text-white"
+          translate="no"
+        >
+          {{ displayName?.charAt(0) }}
+        </strong>
       </div>
     </div>
     <div class="flex justify-center items-center gap-x-1 w-11/12 mx-auto">

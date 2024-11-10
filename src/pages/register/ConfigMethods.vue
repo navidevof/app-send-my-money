@@ -47,7 +47,7 @@ import { useRouter } from "vue-router";
 import MainButton from "@/components/ui/MainButton.vue";
 import SelectMethod from "@/pages/register/SelectMethod.vue";
 import BannerInfo from "@/components/ui/BannerInfo.vue";
-import { usePage } from "@/store/page";
+import { useEditor } from "@/store/editor";
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
 import { createAccount } from "@/services/register";
@@ -59,10 +59,10 @@ import { newMethod } from "@/mocks/editor";
 import IconPlus from "@/components/icons/IconPlus.vue";
 
 const uiStore = useUIStore();
-const pageStore = usePage();
+const editorStore = useEditor();
 const registerStore = useRegister();
 
-const { page } = storeToRefs(pageStore);
+const { page } = storeToRefs(editorStore);
 const { register } = storeToRefs(registerStore);
 
 const router = useRouter();

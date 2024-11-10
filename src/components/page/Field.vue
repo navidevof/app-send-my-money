@@ -37,13 +37,16 @@ interface Props {
   style: IMethodStyle;
 }
 
-defineProps<Props>();
+const { field } = defineProps<Props>();
+const emit = defineEmits(["copy"]);
 
 const isCopied = ref<boolean>(false);
 
 const handleCopy = (value: string) => {
   navigator.clipboard.writeText(value);
+  emit("copy");
   isCopied.value = true;
+
   setTimeout(() => {
     isCopied.value = false;
   }, 3500);
