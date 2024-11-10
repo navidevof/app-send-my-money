@@ -52,6 +52,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "/",
         name: "editor",
         component: () => import("@/views/Editor.vue"),
+      },
+      {
+        path: "/stats",
+        name: "stats",
+        component: () => import("@/views/Stats.vue"),
         children: [],
       },
     ],

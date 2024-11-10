@@ -17,10 +17,13 @@ interface IStatOption {
   optionName: string;
 }
 
-export interface IStatCreate {
+export interface IStat {
   action: Action;
   pageUrl: string;
+  createdAt: number;
   metadata?: {
     method?: IStatMethod;
   };
 }
+
+export interface IStatCreate extends Omit<IStat, "createdAt"> {}

@@ -148,21 +148,25 @@ function scrollToCenter(option: IOption) {
 }
 
 const handleCopy = () => {
-  if (canAddCopyOptionStat.value) {
-    createStatAction({
-      action: Action.POSSIBLE_PAYMENT,
-      pageUrl: url,
-      metadata: {
-        method: {
-          methodTemplate: method.template,
-          methodName: method.name,
-          methodIcon: method.icon,
+  if (!currentOption.value) return;
+  if (!canAddCopyOptionStat.value) return;
+  createStatAction({
+    action: Action.POSSIBLE_PAYMENT,
+    pageUrl: url,
+    metadata: {
+      method: {
+        methodTemplate: method.template,
+        methodName: method.name,
+        methodIcon: method.icon,
+        option: {
+          optionId: currentOption.value.id,
+          optionName: currentOption.value.name,
         },
       },
-    });
+    },
+  });
 
-    canAddCopyOptionStat.value = false;
-  }
+  canAddCopyOptionStat.value = false;
 };
 
 const handleClose = () => {

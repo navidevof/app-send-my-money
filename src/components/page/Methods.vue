@@ -1,8 +1,5 @@
 <template>
-  <aside
-    class="grow flex flex-col gap-y-4 w-full"
-    v-auto-animate="{ duration: 200 }"
-  >
+  <aside class="grow flex flex-col gap-y-4 w-full">
     <ButtonMethod
       v-for="(method, idx) in methods"
       :key="method.id"

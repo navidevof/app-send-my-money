@@ -85,7 +85,6 @@ const validateInput = (value: string): string => {
     .replace(/[\u0300-\u036f]/g, "");
   const sanitizedValue = normalizedValue
     .replace(/[^0-9a-zA-Z-]/g, "")
-    .replaceAll(" ", "-")
     .trim()
     .toLocaleLowerCase();
 
@@ -142,8 +141,9 @@ onMounted(async () => {
     return;
   }
   if (!register.value) return;
-  page.value.url = validateInput(register.value.username);
-  page.value.displayName = register.value.username.replaceAll(" ", "");
+  if (page.value.url != "") return;
+  page.value.url = validateInput(register.value.username.replaceAll(" ", "-"));
+  page.value.displayName = register.value.username;
   await nextTick();
 
   verifyUrl();

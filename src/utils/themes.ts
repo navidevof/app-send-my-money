@@ -6,11 +6,11 @@ export const THEMES: ITheme[] = [
     value: "dark",
     styles: {
       page: {
-        background: "#1F1F22",
+        background: "#000000",
         color: "#FFFFFF",
       },
       method: {
-        background: "#2C2C2C",
+        background: "#191919",
         color: "#FFFFFF",
         borderRadius: "16px",
       },
@@ -22,11 +22,11 @@ export const THEMES: ITheme[] = [
     styles: {
       page: {
         background: "#FFFFFF",
-        color: "#1F1F22",
+        color: "#111111",
       },
       method: {
         background: "#FFFFFF",
-        color: "#1F1F22",
+        color: "#111111",
         borderRadius: "16px",
       },
     },

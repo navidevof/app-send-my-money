@@ -21,4 +21,36 @@ const createStatAction = async (stat: IStatCreate) => {
   }
 };
 
-export { createStatAction };
+const getStats = async ({
+  pageUrl,
+  filters,
+}: {
+  pageUrl: string;
+  filters: {
+    time: "24h" | "7d" | "1m" | "3m" | "6m" | "1y";
+  };
+}) => {
+  try {
+    const res = await axiosClient.post(`/stats`, {
+      pageUrl,
+      filters,
+    });
+
+    return {
+      error: false,
+      data: res.data.body,
+      message: "ok",
+    };
+  } catch (error) {
+    return {
+      error: true,
+      data: null,
+      message: responseError({
+        error,
+        defaultMessage: "Error getting stats",
+      }),
+    };
+  }
+};
+
+export { createStatAction, getStats };

@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        "custom-black-1": "#18181B",
-        "custom-black-2": "#1F1F22",
-        "custom-black-3": "#2C2C2C",
+        "custom-black-1": "#000000",
+        "custom-black-2": "#111111",
+        "custom-black-3": "#191919",
         "custom-green-1": "#0AAF4A",
         "custom-green-2": "#0f6c34",
         "custom-red-1": "#FC1616",

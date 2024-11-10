@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import Loader from "@/components/common/Loader.vue";
+import { useUIStore } from "@/store/ui";
+import { storeToRefs } from "pinia";
+const uiStore = useUIStore();
+const { isLoading } = storeToRefs(uiStore);
+</script>
+
 <template>
   <main class="flex flex-col gap-y-7 py-10">
     <router-link
@@ -20,6 +28,7 @@
       <router-view />
     </aside>
   </main>
+  <Loader v-if="isLoading" />
 </template>
 
 <style>

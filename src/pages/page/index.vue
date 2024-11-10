@@ -52,10 +52,13 @@ import Loader from "@/components/common/Loader.vue";
 import FooterPage from "@/components/common/FooterPage.vue";
 import { createStatAction } from "@/services/stats";
 import { Action } from "@/interfaces/stat";
+import { usePage } from "@/store/page";
 
 const route = useRoute();
 const uiStore = useUIStore();
+const pageStore = usePage();
 const { isLoading } = storeToRefs(uiStore);
+const { canAddCopyOptionStat } = storeToRefs(pageStore);
 const page = ref<IPageExternal>();
 const currenMethod = ref<IMethod>();
 
@@ -72,6 +75,7 @@ onMounted(async () => {
 
     page.value = res.data;
     document.title = page.value.displayName;
+    canAddCopyOptionStat.value = true;
     createStatAction({
       action: Action.OPEN_PAGE,
       pageUrl: url,

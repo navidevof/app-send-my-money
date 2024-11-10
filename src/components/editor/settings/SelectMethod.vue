@@ -1,7 +1,7 @@
 <template>
   <Select
     :options="METHODS.sort((a, b) => a.label.localeCompare(b.label))"
-    class="w-full !bg-custom-black-3 !rounded-2xl px-5 py-3 !text-white [&>]"
+    class="w-full !bg-custom-black-3 !rounded-2xl !text-white"
     filter
     optionLabel="label"
     v-model="methodTemplate"
@@ -25,7 +25,7 @@
       </div>
     </template>
     <template #option="slotProps">
-      <div class="flex gap-4 items-center w-full py-2">
+      <div class="flex gap-4 items-center w-full">
         <ImageBank :icon="slotProps.option.icon" />
         <div>{{ slotProps.option.label }}</div>
       </div>
@@ -83,17 +83,3 @@ watch(currentMethod, () => {
   }
 });
 </script>
-
-<style>
-.p-select-overlay {
-  @apply !bg-custom-black-2 !mt-2 !rounded-xl px-5 py-3 !text-white drop-shadow-white;
-}
-
-.p-iconfield {
-  @apply bg-custom-black-3 px-3 py-2 text-white mb-2 relative rounded-lg;
-}
-
-.p-inputicon {
-  @apply -translate-y-1/2 -translate-x-4;
-}
-</style>

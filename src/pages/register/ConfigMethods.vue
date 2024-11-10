@@ -57,13 +57,17 @@ import { MESSAGES } from "@/utils/messages";
 import { signIn } from "@/services/login";
 import { newMethod } from "@/mocks/editor";
 import IconPlus from "@/components/icons/IconPlus.vue";
+import { useUser } from "@/store/user";
 
 const uiStore = useUIStore();
 const editorStore = useEditor();
 const registerStore = useRegister();
+const userStore = useUser();
 
+const { isLoading } = storeToRefs(uiStore);
 const { page } = storeToRefs(editorStore);
 const { register } = storeToRefs(registerStore);
+const { finishRegister } = storeToRefs(userStore);
 
 const router = useRouter();
 
@@ -91,6 +95,8 @@ const onAdd = () => {
 
 const handleSubmit = async () => {
   try {
+    finishRegister.value = false;
+    isLoading.value = true;
     const res = await createAccount({
       username: register.value.username,
       email: register.value.email,
@@ -113,6 +119,8 @@ const handleSubmit = async () => {
   } catch (error) {
     uiStore.showAlert("error", MESSAGES.ERROR_DEFAULT);
     console.log({ error });
+  } finally {
+    isLoading.value = false;
   }
 };
 
