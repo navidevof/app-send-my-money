@@ -35,15 +35,19 @@
         >
           <div class="w-10/12 mx-auto flex flex-col gap-y-2 text-white">
             <button class="text-nowrap text-sm flex items-center gap-2">
-              <span class="w-4">👤</span> Account persona
+              <span class="w-4">👤</span> Account
             </button>
-            <button class="text-nowrap text-sm flex items-center gap-2">
+            <!-- <button class="text-nowrap text-sm flex items-center gap-2">
               <span class="w-4">⚙</span> Settings
-            </button>
+            </button> -->
             <button class="text-nowrap text-sm flex items-center gap-2">
               <span class="w-4">📊</span> Stats
             </button>
-            <button class="text-nowrap text-sm flex items-center gap-2">
+            <button
+              v-if="!page.plan?.isActive"
+              @click="showModalPremium = true"
+              class="text-nowrap text-sm flex items-center gap-2"
+            >
               <span class="w-4">✨</span> Upgrade to Pro
             </button>
           </div>
@@ -71,10 +75,12 @@ import { useUIStore } from "@/store/ui";
 import { useRouter } from "vue-router";
 import { MESSAGES } from "@/utils/messages";
 import { useEditor } from "@/store/editor";
+import { storeToRefs } from "pinia";
 
 const router = useRouter();
 const uiStore = useUIStore();
 const editorStore = useEditor();
+const { page, showModalPremium } = storeToRefs(editorStore);
 
 const showDropdown = ref<boolean>(false);
 
