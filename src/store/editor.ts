@@ -44,7 +44,10 @@ export const useEditor = defineStore(
 
     const resetStore = () => {
       initPage();
-      page.value = { ...INITIAL_PAGE };
+      filePhoto.value = undefined;
+      unsavedChanges.value = false;
+      showModalPremium.value = false;
+      page.value = JSON.parse(JSON.stringify(INITIAL_PAGE));
     };
 
     watch(
