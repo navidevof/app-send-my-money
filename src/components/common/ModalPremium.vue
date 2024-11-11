@@ -4,7 +4,7 @@
     v-show="showModalPremium"
   >
     <div
-      class="flex flex-col md:items-center md:justify-center relative rounded-3xl overflow-y-auto max-h-[90vh] w-10/12 max-w-screen-lg bg-custom-black-3"
+      class="flex flex-col md:items-center md:justify-center relative rounded-3xl overflow-y-auto max-h-[90vh] w-11/12 max-w-screen-lg bg-custom-black-3"
     >
       <header class="text-white text-center font-semibold py-5">
         <h2 class="text-lg">Upgrade to Send Pro</h2>
@@ -27,8 +27,8 @@
           </h3>
           <p class="text-white/85">
             Streamline and manage your payment methods with a 15-day free trial
-            of SMM Premium! Only $22,000 COP/month after that. Unlock features
-            like:
+            of SMM Premium! Only $18,000 COP/month or $4 after that. Unlock
+            features like:
           </p>
           <ul class="list-disc flex flex-col gap-2 list-inside text-white/85">
             <li>Analysis and statistics of your payment methods.</li>
@@ -37,7 +37,7 @@
             <li>Priority customer support and more.</li>
           </ul>
           <span>
-            Pro is just $22,000 COP/month once your trial's up. You can cancel
+            Pro is just $18,000 COP/month once your trial's up. You can cancel
             any time!
           </span>
           <MainButton @click="goToPayment" class="sticky bottom-0 left-0">
