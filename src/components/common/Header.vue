@@ -80,6 +80,7 @@
             <a
               href="https://wa.me/573241457544"
               class="text-nowrap text-sm flex items-center gap-2 md:hidden"
+              v-if="page.plan?.isActive"
             >
               <span class="w-4">📝</span> Feedback
             </a>
