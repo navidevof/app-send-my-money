@@ -3,7 +3,7 @@
     <aside class="w-10/12 mx-auto grid place-content-end">
       <select
         v-model="currentTime"
-        class="border border-white/50 rounded-2xl p-2"
+        class="border border-white/50 bg-custom-black-1 rounded-2xl p-2"
         @change="loadStats"
       >
         <option value="7d">Last 7 days</option>
@@ -81,11 +81,32 @@
         </span>
       </div>
     </header>
-    <LineChart :data="data" :key="data.length" />
     <aside
-      class="flex lg:flex-row flex-col flex-wrap gap-x-4 gap-y-6 w-10/12 mx-auto"
+      class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 w-10/12 mx-auto"
     >
-      <CardDetail :showContent="methods.length > 0">
+      <CardDetail :show-content="data.length > 0" class="md:col-span-2">
+        <template #header>
+          <h3 class="text-white font-semibold duration-200 transition">
+            Generals
+          </h3>
+        </template>
+        <template #content>
+          <LineChart
+            :data="data"
+            :key="data.length"
+            class="w-11/12 md:w-full mx-auto"
+          />
+        </template>
+        <template #message-empty>
+          <div
+            class="flex flex-col justify-center my-auto items-center w-9/12 mx-auto gap-y-2"
+          >
+            <IconTimeline class="size-8 text-white" />
+            <p class="text-white text-center text-sm">"No information found"</p>
+          </div>
+        </template>
+      </CardDetail>
+      <CardDetail :showContent="methods.length > 0" class="w-full">
         <template #header>
           <h3 class="text-white font-semibold">Methods</h3>
           <span class="text-white/50 text-sm text-end">CLICKS</span>
@@ -118,7 +139,7 @@
           </div>
         </template>
       </CardDetail>
-      <CardDetail :showContent="options.length > 0">
+      <CardDetail :showContent="options.length > 0" class="w-full">
         <template #header>
           <h3 class="text-white font-semibold duration-200 transition">
             Options
@@ -156,6 +177,24 @@
           </div>
         </template>
       </CardDetail>
+      <CardDetail :show-content="data.length > 0" class="md:col-span-2">
+        <template #header>
+          <h3 class="text-white font-semibold duration-200 transition">
+            Actions per day
+          </h3>
+        </template>
+        <template #content>
+          <BarChartByDays :data="data" :key="data.length" />
+        </template>
+        <template #message-empty>
+          <div
+            class="flex flex-col justify-center my-auto items-center w-9/12 mx-auto gap-y-2"
+          >
+            <IconTimeline class="size-8 text-white" />
+            <p class="text-white text-center text-sm">"No information found"</p>
+          </div>
+        </template>
+      </CardDetail>
     </aside>
   </section>
 </template>
@@ -166,6 +205,7 @@ import IconEye from "@/components/icons/IconEye.vue";
 import IconPercentage from "@/components/icons/IconPercentage.vue";
 import IconPossiblePay from "@/components/icons/IconPossiblePay.vue";
 import IconTimeline from "@/components/icons/IconTimeline.vue";
+import BarChartByDays from "@/components/stats/BarChartByDays.vue";
 import CardDetail from "@/components/stats/CardDetail.vue";
 import LineChart from "@/components/stats/LineChart.vue";
 import ImageBank from "@/components/ui/ImageBank.vue";

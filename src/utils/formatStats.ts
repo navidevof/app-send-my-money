@@ -42,7 +42,9 @@ const getMethods = (data: IStat[]) => {
     return acc;
   }, {});
 
-  return Object.values(methods) as {
+  return Object.values(methods).sort(
+    (a: any, b: any) => b.clicks - a.clicks
+  ) as {
     icon: string;
     name: string;
     template: string;
@@ -76,4 +78,26 @@ const getSalesByOption = (data: IStat[], methodTemplate: string) => {
   }[];
 };
 
-export { formatHeader, getMethods, getSalesByOption };
+const getWeeklyActionCounts = (data: IStat[]) => {
+  const weeklyData = {
+    Monday: 0,
+    Tuesday: 0,
+    Wednesday: 0,
+    Thursday: 0,
+    Friday: 0,
+    Saturday: 0,
+    Sunday: 0,
+  };
+
+  data.forEach((item) => {
+    const date = new Date(item.createdAt);
+    const dayName = date.toLocaleDateString("en-US", { weekday: "long" });
+    if (weeklyData[dayName as keyof typeof weeklyData] !== undefined) {
+      weeklyData[dayName as keyof typeof weeklyData] += 1;
+    }
+  });
+
+  return Object.values(weeklyData);
+};
+
+export { formatHeader, getMethods, getSalesByOption, getWeeklyActionCounts };

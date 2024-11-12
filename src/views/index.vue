@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-col min-h-[100dvh]">
+  <main class="flex flex-col min-h-[100dvh] overflow-hidden">
     <Header />
     <router-view />
   </main>

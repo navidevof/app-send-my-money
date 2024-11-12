@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col flex-1 rounded-lg border border-white/50 aspect-[592/469] lg:aspect-[592/369] min-h-60"
+    class="flex flex-col flex-1 w-full rounded-lg border border-white/50 aspect-[592/469] lg:aspect-[592/369] min-h-72"
   >
     <div
       class="py-3 px-5 flex justify-between items-center border-white/50 border-b w-full"
@@ -39,7 +39,7 @@ import IconTimeline from "@/components/icons/IconTimeline.vue";
 import MainButton from "../ui/MainButton.vue";
 
 interface Props {
-  showContent: boolean;
+  showContent?: boolean;
 }
 
 defineProps<Props>();

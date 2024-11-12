@@ -1,8 +1,5 @@
 <template>
-  <aside
-    class="w-10/12 mx-auto aspect-square lg:aspect-[592/369] rounded-2xl border border-white/50 overflow-hidden"
-    ref="$chartDom"
-  ></aside>
+  <aside class="size-full" ref="$chartDom"></aside>
 </template>
 
 <script lang="ts" setup>

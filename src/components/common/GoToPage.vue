@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-custom-black-3 flex md:flex-row flex-col gap-y-4 justify-between items-center drop-shadow-green border text-sm md:text-base border-white/50 rounded-2xl px-4 py-4 md:py-2 text-white"
+    class="bg-custom-black-2 flex md:flex-row flex-col gap-y-4 justify-between items-center drop-shadow-green border text-sm md:text-base border-white/50 rounded-2xl px-4 py-4 md:py-2 text-white"
   >
     <p class="w-full md:w-fit md:text-start text-center">
       <strong class="md:inline-block block">🔥 Your SMM is ready in: </strong
