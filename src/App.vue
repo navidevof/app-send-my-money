@@ -4,9 +4,6 @@
 
 <script lang="ts" setup>
 import { inject } from "@vercel/analytics";
-import { onUnmounted } from "vue";
 
-onUnmounted(() => {
-  inject();
-});
+inject();
 </script>
