@@ -12,7 +12,7 @@
       v-auto-animate="{ duration: 200 }"
     >
       <div
-        v-if="!page?.plan?.isActive"
+        v-if="!page?.plan?.isActive && isPremium"
         class="flex flex-col justify-center my-auto items-center w-9/12 mx-auto gap-y-2"
       >
         <IconTimeline class="size-8 text-white" />
@@ -40,9 +40,12 @@ import MainButton from "../ui/MainButton.vue";
 
 interface Props {
   showContent?: boolean;
+  isPremium?: boolean;
 }
 
-defineProps<Props>();
+withDefaults(defineProps<Props>(), {
+  isPremium: true,
+});
 
 const editorStore = useEditor();
 const { page, showModalPremium } = storeToRefs(editorStore);

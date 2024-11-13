@@ -84,7 +84,11 @@
     <aside
       class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 w-10/12 mx-auto"
     >
-      <CardDetail :show-content="data.length > 0" class="md:col-span-2">
+      <CardDetail
+        :show-content="data.length > 0"
+        class="md:col-span-2"
+        :isPremium="false"
+      >
         <template #header>
           <h3 class="text-white font-semibold duration-200 transition">
             Generals

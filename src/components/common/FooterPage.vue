@@ -1,5 +1,5 @@
 <template>
-  <footer class="w-full flex flex-col items-center gap-y-3">
+  <footer class="w-full flex flex-col items-center gap-y-3 sticky bottom-5">
     <a href="/" target="_blank" rel="noreferrer noopener">
       <MainButton
         class="!w-fit mx-auto opacity-50 hover:opacity-100 group hover:!bg-custom-green-1 drop-shadow-green border border-white/50"
