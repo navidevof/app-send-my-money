@@ -4,9 +4,9 @@
     <aside
       class="gap-x-10 xl:gap-x-20 justify-center h-fit w-full grid grid-cols-1 lg:grid-cols-3 relative"
     >
-      <PageConfig class="min-h-[50vh]" />
-      <Preview class="min-h-[50vh]" />
-      <Settings class="min-h-[50vh]" />
+      <PageConfig class="min-h-[75vh]" />
+      <Preview class="min-h-[75vh]" />
+      <Settings class="min-h-[75vh]" />
     </aside>
   </section>
 </template>

@@ -1,6 +1,9 @@
 import { auth } from "@/firebase";
 import { validateError } from "@/utils/firebasesCodeValidation";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const signIn = async (email: string, password: string) => {
   try {
@@ -32,4 +35,19 @@ const signOut = async () => {
   }
 };
 
-export { signIn, signOut };
+const recoverPassword = async (email: string) => {
+  try {
+    await sendPasswordResetEmail(auth, email);
+    return {
+      error: false,
+      message: "Password recovery email sent successfully",
+    };
+  } catch (error: any) {
+    return {
+      error: true,
+      message: validateError(error),
+    };
+  }
+};
+
+export { signIn, signOut, recoverPassword };

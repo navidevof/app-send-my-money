@@ -35,6 +35,11 @@ const pages: Array<RouteRecordRaw> = [
     component: () => import("@/pages/login/Login.vue"),
   },
   {
+    path: "/recover-password",
+    name: "recoverPassword",
+    component: () => import("@/pages/login/RecoverPassword.vue"),
+  },
+  {
     path: "/page/:url",
     name: "page",
     component: () => import("@/pages/page/index.vue"),

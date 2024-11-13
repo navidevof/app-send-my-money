@@ -11,7 +11,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        {{ url }}
+        /{{ url }}
       </a>
     </p>
     <MainButton

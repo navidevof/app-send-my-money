@@ -102,7 +102,7 @@
             class="flex flex-col justify-center my-auto items-center w-9/12 mx-auto gap-y-2"
           >
             <IconTimeline class="size-8 text-white" />
-            <p class="text-white text-center text-sm">"No information found"</p>
+            <p class="text-white text-center text-sm">No information found</p>
           </div>
         </template>
       </CardDetail>
@@ -191,7 +191,7 @@
             class="flex flex-col justify-center my-auto items-center w-9/12 mx-auto gap-y-2"
           >
             <IconTimeline class="size-8 text-white" />
-            <p class="text-white text-center text-sm">"No information found"</p>
+            <p class="text-white text-center text-sm">No information found</p>
           </div>
         </template>
       </CardDetail>

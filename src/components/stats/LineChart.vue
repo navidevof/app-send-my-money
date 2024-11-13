@@ -11,6 +11,7 @@ interface Props {
   data: IStat[];
 }
 
+const bottomPadding = ref<string>("10%");
 const { data } = defineProps<Props>();
 const $chartDom = ref<HTMLDivElement>();
 
@@ -63,7 +64,7 @@ const initChart = () => {
     dataZoom: [
       {
         type: "slider",
-        start: 40,
+        start: 20,
         end: 100,
         xAxisIndex: 0,
         handleSize: "80%",
@@ -78,7 +79,7 @@ const initChart = () => {
     grid: {
       left: "2%",
       right: "5%",
-      bottom: "15%",
+      bottom: bottomPadding.value,
       containLabel: true,
     },
     toolbox: {
@@ -136,16 +137,29 @@ let myChart: echarts.ECharts;
 onMounted(() => {
   if ($chartDom.value) {
     myChart = initChart();
-
-    // Usamos ResizeObserver para actualizar el gráfico solo cuando cambian las dimensiones del contenedor
     const resizeObserver = new ResizeObserver(() => {
-      myChart.resize(); // Solo se ajusta si el contenedor cambia de tamaño
+      const width = window.innerWidth;
+      if (width > 768) {
+        bottomPadding.value = "10%";
+      }
+      if (width <= 768 && width > 480) {
+        bottomPadding.value = "20%";
+      }
+      if (width <= 480) {
+        bottomPadding.value = "25%";
+      }
+      myChart.setOption({
+        grid: {
+          bottom: bottomPadding.value,
+        },
+      });
+      myChart.resize();
     });
 
-    resizeObserver.observe($chartDom.value); // Observamos el contenedor del gráfico
+    resizeObserver.observe($chartDom.value);
 
     onBeforeUnmount(() => {
-      resizeObserver.disconnect(); // Desconectar el observer cuando el componente se destruya
+      resizeObserver.disconnect();
     });
   }
 });

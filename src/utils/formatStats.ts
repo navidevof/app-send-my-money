@@ -100,4 +100,25 @@ const getWeeklyActionCounts = (data: IStat[]) => {
   return Object.values(weeklyData);
 };
 
-export { formatHeader, getMethods, getSalesByOption, getWeeklyActionCounts };
+const getLabelByAction = (action: Action) => {
+  switch (action) {
+    case Action.OPEN_PAGE:
+      return "Open page";
+    case Action.CLICK_METHOD:
+      return "Click method";
+    case Action.CLICK_METHOD_OPTION:
+      return "Click method option";
+    case Action.POSSIBLE_PAYMENT:
+      return "Possible payment";
+    default:
+      return "Unknown action";
+  }
+};
+
+export {
+  formatHeader,
+  getMethods,
+  getSalesByOption,
+  getWeeklyActionCounts,
+  getLabelByAction,
+};

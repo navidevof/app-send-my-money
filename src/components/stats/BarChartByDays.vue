@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { IStat } from "@/interfaces/stat";
-import { getWeeklyActionCounts } from "@/utils/formatStats";
+import { getLabelByAction, getWeeklyActionCounts } from "@/utils/formatStats";
 import * as echarts from "echarts";
 import { onMounted, onBeforeUnmount, ref } from "vue";
 
@@ -25,6 +25,31 @@ const daysOfWeek = [
   "Sunday",
 ];
 
+const createTooltip = (params: any) => {
+  const dayValue = params[0].axisValue;
+  const actions = data.filter((item) => {
+    return (
+      new Date(item.createdAt).toLocaleDateString("en-US", {
+        weekday: "long",
+      }) === dayValue
+    );
+  });
+
+  const actionsDetail = actions.reduce((acc: any, item) => {
+    const action = getLabelByAction(item.action);
+    if (!acc[action]) {
+      acc[action] = 1;
+    } else {
+      acc[action]++;
+    }
+    return acc;
+  }, {});
+
+  return `${params[0].axisValueLabel} <br/> ${Object.entries(actionsDetail)
+    .map(([action, count]) => `${action}: ${count}`)
+    .join("<br/>")}`;
+};
+
 const initChart = () => {
   const myChart = echarts.init($chartDom.value, "dark");
   const weeklyCounts = getWeeklyActionCounts(data);
@@ -33,6 +58,7 @@ const initChart = () => {
     backgroundColor: "#000000",
     tooltip: {
       trigger: "axis",
+      formatter: (params: any) => createTooltip(params),
     },
     legend: {
       data: ["Actions"],

@@ -22,34 +22,22 @@
         class="flex flex-col w-11/12 mx-auto max-w-lg rounded-2xl bg-custom-black-2 pt-8 pb-9 drop-shadow-green"
       >
         <h2 class="text-white text-center text-xl font-semibold">
-          Let the magic begin
+          Recover password
         </h2>
         <aside class="w-11/12 mx-auto mt-5 flex flex-col gap-y-4 items-center">
           <input
             type="email"
             placeholder="Email Address"
-            v-model="data.email"
+            v-model="email"
             required
           />
-          <input
-            type="password"
-            placeholder="Password"
-            v-model="data.password"
-            required
-          />
-          <MainButton class="mt-4 text-white"> Sign in </MainButton>
-          <router-link
-            to="/recover-password"
-            class="text-end w-full text-white/70 -mt-2 text-sm hover:underline font-medium hover:text-white transition duration-200"
-          >
-            Forgot password?
-          </router-link>
+          <MainButton class="mt-4 text-white"> Send email </MainButton>
 
           <router-link
-            to="/register"
+            to="/login"
             class="text-center text-white/70 text-sm underline mt-2 hover:text-white transition duration-200"
           >
-            New to SMM? Sign up here
+            Return to login
           </router-link>
         </aside>
       </form>
@@ -59,29 +47,26 @@
 
 <script setup lang="ts">
 import MainButton from "@/components/ui/MainButton.vue";
-import { signIn } from "@/services/login";
+import { recoverPassword } from "@/services/login";
 import { useUIStore } from "@/store/ui";
 import { MESSAGES } from "@/utils/messages";
 import { ref } from "vue";
-import { useRouter } from "vue-router";
 
-const router = useRouter();
 const uiStore = useUIStore();
 
-const data = ref({
-  email: "",
-  password: "",
-});
+const email = ref("");
 
 const handleSubmit = async () => {
   try {
-    const res = await signIn(data.value.email, data.value.password);
+    if (!email.value) return;
+
+    const res = await recoverPassword(email.value);
     if (res.error) {
       uiStore.showAlert("error", res.message);
       return;
     }
 
-    router.push("/");
+    uiStore.showAlert("success", "Check your email to recover your password");
   } catch (error) {
     uiStore.showAlert("error", MESSAGES.ERROR_DEFAULT);
     console.log({ error });
