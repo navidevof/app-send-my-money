@@ -11,8 +11,9 @@
         height="50"
         loading="eager"
       />
-      <h1 class="text-white text-center text-3xl font-bold hidden md:block">
-        Mis links de pago
+      <h1 class="text-white text-center text-3xl font-bold">
+        <span class="hidden md:block">Mis links de pago</span>
+        <span class="md:hidden">MLDP</span>
       </h1>
     </router-link>
     <aside class="w-full register-container">
