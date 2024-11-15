@@ -6,6 +6,8 @@ export const useRegister = defineStore("register", () => {
     username: "",
     email: "",
     password: "",
+    orderId: "",
+    url: "",
   });
 
   const resetStore = () => {

@@ -105,6 +105,7 @@ const handleSubmit = async () => {
       email: register.value.email,
       password: register.value.password,
       page: page.value,
+      orderId: register.value.orderId,
     });
 
     if (res.error || !res.data) {

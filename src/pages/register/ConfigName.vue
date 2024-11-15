@@ -142,12 +142,25 @@ onMounted(async () => {
     router.push("/register");
     return;
   }
+
   if (!register.value) return;
-  if (page.value.url != "") return;
+  if (register.value.url != "") {
+    page.value.url = register.value.url;
+    await nextTick();
+    await verifyUrl();
+    return;
+  }
+
+  if (page.value.url != "") {
+    await nextTick();
+    await verifyUrl();
+    return;
+  }
+
   page.value.url = validateInput(register.value.username.replaceAll(" ", "-"));
   page.value.displayName = register.value.username;
   await nextTick();
 
-  verifyUrl();
+  await verifyUrl();
 });
 </script>

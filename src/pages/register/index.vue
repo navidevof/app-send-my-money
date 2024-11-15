@@ -2,8 +2,24 @@
 import Loader from "@/components/common/Loader.vue";
 import { useUIStore } from "@/store/ui";
 import { storeToRefs } from "pinia";
+import { onMounted } from "vue";
+import { useRoute } from "vue-router";
+import { useRegister } from "@/store/register";
+
 const uiStore = useUIStore();
+const registerStore = useRegister();
 const { isLoading } = storeToRefs(uiStore);
+const { register } = storeToRefs(registerStore);
+
+const route = useRoute();
+
+onMounted(() => {
+  const orderId = route.query.orderId as string;
+  const url = route.query.url as string;
+
+  if (orderId) register.value.orderId = orderId;
+  if (url) register.value.url = url;
+});
 </script>
 
 <template>

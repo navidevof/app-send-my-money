@@ -23,8 +23,7 @@
         type="password"
         placeholder="Ingresa tu contraseña"
         v-model="register.password"
-        minlength="6"
-        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&.]{6,}"
+        minlength="8"
         title="The password must be at least 6 characters long, include an uppercase letter, a lowercase letter, and a number."
         required
       />

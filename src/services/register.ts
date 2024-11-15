@@ -7,11 +7,13 @@ const createAccount = async ({
   email,
   password,
   page,
+  orderId,
 }: {
   username: string;
   email: string;
   password: string;
   page: IPage;
+  orderId?: string;
 }) => {
   try {
     delete page.plan;
@@ -20,6 +22,7 @@ const createAccount = async ({
       email,
       password,
       page,
+      orderId,
     });
 
     const data = res.data.body as IPage;
