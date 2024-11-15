@@ -1,40 +1,40 @@
 <template>
   <form
     @submit.prevent="handleSubmit"
-    class="flex flex-col w-11/12 mx-auto max-w-lg rounded-2xl bg-custom-black-2 pt-8 pb-9 drop-shadow-green"
+    class="flex flex-col w-11/12 mx-auto max-w-lg rounded-2xl pt-8 pb-9 drop-shadow-green bg-custom-black-2"
   >
     <h2 class="text-white text-center text-xl font-semibold">
-      Sign up. It's free!
+      Regístrate ¡Es gratis!
     </h2>
     <aside class="w-11/12 mx-auto mt-5 flex flex-col gap-y-4 items-center">
       <input
         type="text"
-        placeholder="Your name"
+        placeholder="Escribe tu nombre"
         v-model="register.username"
         required
       />
       <input
         type="email"
-        placeholder="Email Address"
+        placeholder="Correo electrónico"
         v-model="register.email"
         required
       />
       <input
         type="password"
-        placeholder="Choose a password"
+        placeholder="Ingresa tu contraseña"
         v-model="register.password"
         minlength="6"
         pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&.]{6,}"
         title="The password must be at least 6 characters long, include an uppercase letter, a lowercase letter, and a number."
         required
       />
-      <MainButton class="mt-5 text-white"> Sign up </MainButton>
+      <MainButton class="mt-5 text-white"> Continuar </MainButton>
 
       <router-link
         to="/login"
         class="text-center text-white/70 text-sm underline hover:text-white transition duration-200"
       >
-        Already have an account? Sign in
+        ¿Ya tienes una cuenta? ingresa aquí
       </router-link>
     </aside>
   </form>

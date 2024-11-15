@@ -17,7 +17,7 @@
       v-show="!currentOption?.fields?.length"
       class="w-full font-light text-pretty p-5 text-center rounded-lg bg-custom-black-3 text-white"
     >
-      Need more details? Add a new field here. 👇
+      Necesitas agregar más detalles? Agrega un nuevo campo aquí. 👇
     </p>
 
     <MainButton @click="onAddNewField" class="">

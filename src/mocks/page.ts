@@ -15,11 +15,11 @@ export const INITIAL_PAGE = {
       id: "method-1",
       template: "new-method",
       icon: "",
-      name: "New method",
+      name: "Nuevo método",
       options: [
         {
           id: "new-option",
-          name: "New option",
+          name: "Nueva opción",
           haveQr: false,
           qrUrl: "",
           fields: [],
@@ -30,11 +30,11 @@ export const INITIAL_PAGE = {
       id: "method-2",
       template: "new-method",
       icon: "",
-      name: "New method",
+      name: "Nuevo método",
       options: [
         {
           id: "new-option",
-          name: "New option",
+          name: "Nueva opción",
           haveQr: false,
           qrUrl: "",
           fields: [],
@@ -45,11 +45,11 @@ export const INITIAL_PAGE = {
       id: "method-3",
       template: "new-method",
       icon: "",
-      name: "New method",
+      name: "Nuevo método",
       options: [
         {
           id: "new-option",
-          name: "New option",
+          name: "Nueva opción",
           haveQr: false,
           qrUrl: "",
           fields: [],

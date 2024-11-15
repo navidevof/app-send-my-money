@@ -6,50 +6,49 @@
     >
       <img
         src="@/assets/logo.webp"
-        alt="Logo Send My Money"
+        alt="Logo de Mis links de pago"
         width="50"
         height="50"
         loading="eager"
       />
-      <h1 class="text-white text-center text-3xl font-bold">
-        <span class="hidden md:block">Send My Money</span>
-        <span class="md:hidden">SMM</span>
+      <h1 class="text-white text-center text-3xl font-bold hidden md:block">
+        Mis links de pago
       </h1>
     </router-link>
     <aside class="w-full register-container">
       <form
         @submit.prevent="handleSubmit"
-        class="flex flex-col w-11/12 mx-auto max-w-lg rounded-2xl bg-custom-black-2 pt-8 pb-9 drop-shadow-green"
+        class="flex flex-col w-11/12 mx-auto max-w-lg rounded-2xl pt-8 pb-9 drop-shadow-green bg-custom-black-2"
       >
         <h2 class="text-white text-center text-xl font-semibold">
-          Let the magic begin
+          Ingresa a tu cuenta
         </h2>
         <aside class="w-11/12 mx-auto mt-5 flex flex-col gap-y-4 items-center">
           <input
             type="email"
-            placeholder="Email Address"
+            placeholder="Correo"
             v-model="data.email"
             required
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             v-model="data.password"
             required
           />
-          <MainButton class="mt-4 text-white"> Sign in </MainButton>
+          <MainButton class="mt-4 text-white"> Ingresar </MainButton>
           <router-link
             to="/recover-password"
             class="text-end w-full text-white/70 -mt-2 text-sm hover:underline font-medium hover:text-white transition duration-200"
           >
-            Forgot password?
+            ¿Olvidaste tu contraseña?
           </router-link>
 
           <router-link
             to="/register"
             class="text-center text-white/70 text-sm underline mt-2 hover:text-white transition duration-200"
           >
-            New to SMM? Sign up here
+            ¿Eres nuevo en Mis links de pago? Regístrate
           </router-link>
         </aside>
       </form>

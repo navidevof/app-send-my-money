@@ -6,15 +6,15 @@
         class="border border-white/50 bg-custom-black-1 rounded-2xl p-2"
         @change="loadStats"
       >
-        <option value="7d">Last 7 days</option>
-        <option value="1m">Last 30 days</option>
+        <option value="7d">Últimos 7 días</option>
+        <option value="1m">Últimos 30 días</option>
         <option :disabled="!page.plan?.isActive" value="3m">
-          Last 3 months
+          Últimos 3 meses
         </option>
         <option :disabled="!page.plan?.isActive" value="6m">
-          Last 6 months
+          Últimos 6 meses
         </option>
-        <option :disabled="!page.plan?.isActive" value="1y">Last year</option>
+        <option :disabled="!page.plan?.isActive" value="1y">Último año</option>
       </select>
     </aside>
     <header
@@ -22,7 +22,7 @@
     >
       <div
         v-tooltip.top="{
-          value: 'Views of the page',
+          value: 'Visitas a la página',
           pt: {
             text: '!font-light !text-xs !bg-custom-black-3',
           },
@@ -37,7 +37,7 @@
       </div>
       <div
         v-tooltip.top="{
-          value: 'Clicks in methods',
+          value: 'Clics en métodos',
           pt: {
             text: '!font-light !text-xs !bg-custom-black-3',
           },
@@ -52,7 +52,7 @@
       </div>
       <div
         v-tooltip.top="{
-          value: 'Possible sales',
+          value: 'Posibles pagos',
           pt: {
             text: '!font-light !text-xs !bg-custom-black-3',
           },
@@ -67,7 +67,7 @@
       </div>
       <div
         v-tooltip.top="{
-          value: 'Conversion rate',
+          value: 'Tasa de conversión',
           pt: {
             text: '!font-light !text-xs !bg-custom-black-3',
           },
@@ -91,7 +91,7 @@
       >
         <template #header>
           <h3 class="text-white font-semibold duration-200 transition">
-            Generals
+            Estadísticas generales
           </h3>
         </template>
         <template #content>
@@ -106,14 +106,16 @@
             class="flex flex-col justify-center my-auto items-center w-9/12 mx-auto gap-y-2"
           >
             <IconTimeline class="size-8 text-white" />
-            <p class="text-white text-center text-sm">No information found</p>
+            <p class="text-white text-center text-sm">
+              No se encontrado información
+            </p>
           </div>
         </template>
       </CardDetail>
       <CardDetail :showContent="methods.length > 0" class="w-full">
         <template #header>
-          <h3 class="text-white font-semibold">Methods</h3>
-          <span class="text-white/50 text-sm text-end">CLICKS</span>
+          <h3 class="text-white font-semibold">Métodos</h3>
+          <span class="text-white/50 text-sm text-end">CLICS</span>
         </template>
         <template #content>
           <button
@@ -123,7 +125,7 @@
             :class="[
               currentMethodName === method.name
                 ? 'bg-custom-green-2'
-                : 'bg-custom-black-2 hover:bg-custom-black-3',
+                : ' bg-custom-black-2 hover:bg-custom-black-3',
             ]"
             @click="handleClickMethod(method)"
           >
@@ -139,14 +141,16 @@
             class="flex flex-col justify-center my-auto items-center w-9/12 mx-auto gap-y-2"
           >
             <IconTimeline class="size-8 text-white" />
-            <p class="text-white text-center text-sm">No information found</p>
+            <p class="text-white text-center text-sm">
+              No se encontrado información
+            </p>
           </div>
         </template>
       </CardDetail>
       <CardDetail :showContent="options.length > 0" class="w-full">
         <template #header>
           <h3 class="text-white font-semibold duration-200 transition">
-            Options
+            Opciones
             <span
               v-show="currentMethodName"
               class="text-white/50 text-sm font-light"
@@ -154,7 +158,7 @@
               > {{ currentMethodName }}
             </span>
           </h3>
-          <span class="text-white/50 text-sm text-end">POSSIBLE SALES</span>
+          <span class="text-white/50 text-sm text-end">POSIBLES PAGOS</span>
         </template>
         <template #content>
           <button
@@ -174,8 +178,8 @@
             <p class="text-white text-center text-sm">
               {{
                 isFirstSelectMethod
-                  ? "Select a method to view statistics"
-                  : "No information found"
+                  ? "Selecciona un método para ver las estadísticas"
+                  : "No se encontrado información"
               }}
             </p>
           </div>
@@ -184,7 +188,7 @@
       <CardDetail :show-content="data.length > 0" class="md:col-span-2">
         <template #header>
           <h3 class="text-white font-semibold duration-200 transition">
-            Actions per day
+            Actions por día
           </h3>
         </template>
         <template #content>
@@ -195,7 +199,9 @@
             class="flex flex-col justify-center my-auto items-center w-9/12 mx-auto gap-y-2"
           >
             <IconTimeline class="size-8 text-white" />
-            <p class="text-white text-center text-sm">No information found</p>
+            <p class="text-white text-center text-sm">
+              No se encontrado información
+            </p>
           </div>
         </template>
       </CardDetail>

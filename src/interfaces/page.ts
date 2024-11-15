@@ -65,4 +65,4 @@ export interface IMethodStyle {
   color?: string;
 }
 
-export type TTab = "Methods" | "Appearance";
+export type TTab = "Métodos" | "Apariencia";

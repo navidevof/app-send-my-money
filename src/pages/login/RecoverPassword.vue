@@ -6,38 +6,33 @@
     >
       <img
         src="@/assets/logo.webp"
-        alt="Logo Send My Money"
+        alt="Logo Mis links de pago"
         width="50"
         height="50"
         loading="eager"
       />
       <h1 class="text-white text-center text-3xl font-bold">
-        <span class="hidden md:block">Send My Money</span>
-        <span class="md:hidden">SMM</span>
+        <span class="hidden md:block">Mis links de pago</span>
+        <span class="md:hidden">MLDP</span>
       </h1>
     </router-link>
     <aside class="w-full register-container">
       <form
         @submit.prevent="handleSubmit"
-        class="flex flex-col w-11/12 mx-auto max-w-lg rounded-2xl bg-custom-black-2 pt-8 pb-9 drop-shadow-green"
+        class="flex flex-col w-11/12 mx-auto max-w-lg rounded-2xl pt-8 pb-9 drop-shadow-green bg-custom-black-2"
       >
         <h2 class="text-white text-center text-xl font-semibold">
-          Recover password
+          Recuperar contraseña
         </h2>
         <aside class="w-11/12 mx-auto mt-5 flex flex-col gap-y-4 items-center">
-          <input
-            type="email"
-            placeholder="Email Address"
-            v-model="email"
-            required
-          />
-          <MainButton class="mt-4 text-white"> Send email </MainButton>
+          <input type="email" placeholder="Correo" v-model="email" required />
+          <MainButton class="mt-4 text-white"> Enviar correo </MainButton>
 
           <router-link
             to="/login"
             class="text-center text-white/70 text-sm underline mt-2 hover:text-white transition duration-200"
           >
-            Return to login
+            Volver
           </router-link>
         </aside>
       </form>

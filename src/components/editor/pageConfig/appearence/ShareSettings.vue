@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-y-2 w-full">
-    <h3 class="text-white font-medium">Message to share</h3>
+    <h3 class="text-white font-medium">Mensaje al compartir</h3>
     <textarea
       class="w-full px-5 py-2 rounded-lg font-light bg-custom-black-3 text-white"
       type="text"

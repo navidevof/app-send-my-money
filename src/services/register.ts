@@ -14,6 +14,7 @@ const createAccount = async ({
   page: IPage;
 }) => {
   try {
+    delete page.plan;
     const res = await axiosClient.post("/users/create", {
       username,
       email,
@@ -34,7 +35,7 @@ const createAccount = async ({
       error: true,
       message: responseError({
         error,
-        defaultMessage: "Error creating account",
+        defaultMessage: "Error al crear la cuenta",
       }),
       data: null,
     };

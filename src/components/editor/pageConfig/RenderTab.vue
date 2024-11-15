@@ -1,6 +1,6 @@
 <template>
-  <Methods v-if="pageConfigCurrentTab === 'Methods'" />
-  <Appearance v-if="pageConfigCurrentTab === 'Appearance'" />
+  <Methods v-if="pageConfigCurrentTab === 'Métodos'" />
+  <Appearance v-if="pageConfigCurrentTab === 'Apariencia'" />
 </template>
 
 <script setup lang="ts">

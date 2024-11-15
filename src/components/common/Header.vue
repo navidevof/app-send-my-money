@@ -6,15 +6,16 @@
       <router-link class="flex items-center gap-2 md:gap-x-3" to="/">
         <img
           src="@/assets/logo.webp"
-          alt="Logo Send My Money"
+          alt="Logo Mis links de pago"
           class="aspect-square w-[50px] h-[50px]"
           width="50"
           height="50"
           loading="eager"
         />
-        <h1 class="text-white text-2xl font-bold drop-shadow-white">
-          <span class="hidden md:block" translate="no">Send My Money</span>
-          <span class="md:hidden">SMM</span>
+        <h1
+          class="text-white text-2xl font-bold drop-shadow-white hidden md:block"
+        >
+          Mis links de pago
         </h1>
       </router-link>
       <div
@@ -25,7 +26,7 @@
           href="https://wa.me/573241457544"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-white px-4 py-2 border border-white/50 rounded-lg md:block hidden hover:bg-custom-black-3 transition duration-200"
+          class="text-white px-4 py-2 border border-white/50 rounded-lg md:block hidden bg-custom-black-2 hover:bg-custom-black-3 transition duration-200"
           v-if="page.plan?.isActive"
         >
           Feedback
@@ -56,7 +57,7 @@
         <div
           v-show="showDropdown"
           id="menu-header-dropdown"
-          class="absolute z-30 top-full gap-y-3 min-w-48 w-fit text-start right-0 mt-2 rounded-2xl py-3 flex flex-col bg-custom-black-2 drop-shadow-green border border-white/50"
+          class="absolute z-30 top-full gap-y-3 bg-custom-black-2 min-w-48 w-fit text-start right-0 mt-2 rounded-2xl py-3 flex flex-col drop-shadow-green border border-white/50"
         >
           <div class="w-10/12 mx-auto flex flex-col gap-y-2 text-white">
             <!-- <button
@@ -75,7 +76,7 @@
               to="/stats"
               class="text-nowrap text-sm flex items-center gap-2"
             >
-              <span class="w-4">📊</span> Stats
+              <span class="w-4">📊</span> Estadísticas
             </router-link>
             <a
               href="https://wa.me/573241457544"
@@ -89,7 +90,7 @@
               @click="showModalPremium = true"
               class="text-nowrap text-sm flex items-center gap-2"
             >
-              <span class="w-4">✨</span> Upgrade to Pro
+              <span class="w-4">✨</span> Actualizar a pro
             </button>
           </div>
           <div class="h-px bg-white/70 w-full" />
@@ -99,7 +100,7 @@
           >
             <IconSignOut class="size-5 text-custom-red-1" />
             <span class="text-start text-custom-red-1 font-semibold text-sm">
-              Sign out
+              Cerrar sesión
             </span>
           </button>
         </div>

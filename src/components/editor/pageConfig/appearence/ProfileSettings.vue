@@ -31,18 +31,18 @@
           accept="image/*"
           @change="uploadPhoto"
         />
-        Upload 📷
+        Cargar 📷
       </label>
       <MainButton
         @click="removePhoto"
         class="!bg-transparent text-sm text-custom-red-1 font-light !p-0 text-center"
       >
-        Remove
+        Eliminar
       </MainButton>
     </div>
   </div>
   <div class="flex flex-col gap-y-2 w-full">
-    <h3 class="text-white font-medium">Display nane</h3>
+    <h3 class="text-white font-medium">Nombre de la página</h3>
     <input
       class="w-full px-5 py-2 rounded-lg font-light bg-custom-black-3 text-white"
       type="text"

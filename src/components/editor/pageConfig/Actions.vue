@@ -2,14 +2,14 @@
   <div class="flex flex-col gap-y-3 w-full sticky top-0 z-10">
     <MainButton @click="onSave" :disabled="!unsavedChanges">
       <IconSave class="size-6 text-white" />
-      <span class="text-lg font-semibold text-white"> Publish </span>
+      <span class="text-lg font-semibold text-white"> Publicar cambios </span>
     </MainButton>
     <MainButton
       @click="editorStore.onAddNewMethod"
-      v-show="pageConfigCurrentTab === 'Methods'"
+      v-show="pageConfigCurrentTab === 'Métodos'"
     >
       <IconPlus class="size-6 text-white" />
-      <span class="2xl:text-lg font-semibold text-white">Add method</span>
+      <span class="2xl:text-lg font-semibold text-white">Agregar método</span>
     </MainButton>
   </div>
 </template>

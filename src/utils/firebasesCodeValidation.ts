@@ -1,15 +1,15 @@
 const validateError = (error: { code: string }): string => {
-  let errorMessage = "User login failed, please try again later.";
+  let errorMessage = "Error al iniciar sesión, intenta de nuevo.";
   switch (error.code) {
     case "auth/email-already-in-use":
-      errorMessage = "Mail is already in use, try another email";
+      errorMessage = "El correo ya se encuentra en uso, prueba con otro.";
       break;
     case "auth/too-many-requests":
       errorMessage =
-        "Access to this account has been temporarily disabled due to many failed login attempts. You can restore it immediately by resetting your password or you can try again later.";
+        "Hemos desactivado temporalmente el acceso a tu cuenta por multiples intentos fallidos, actualiza tu contraseña o espera unos minutos.";
       break;
     case "auth/invalid-credential":
-      errorMessage = "The data are incorrect.";
+      errorMessage = "Información de acceso incorrecta, prueba con otro.";
       break;
   }
   return errorMessage;

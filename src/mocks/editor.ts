@@ -2,7 +2,7 @@ import { IMethod, IOption } from "@/interfaces/page";
 
 export const newOption: () => IOption = () => ({
   id: `option-${Date.now()}`,
-  name: "New option",
+  name: "Nueva opción",
   haveQr: false,
   qrUrl: "",
   fields: [],
@@ -11,7 +11,7 @@ export const newOption: () => IOption = () => ({
 export const newMethod: () => IMethod = () => ({
   id: `method-${Date.now()}`,
   template: "",
-  name: "New method",
+  name: "Nuevo método",
   style: {
     borderRadius: "16",
     background: "#FFFFFF",

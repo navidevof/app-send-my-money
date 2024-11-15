@@ -14,14 +14,14 @@ const { isLoading } = storeToRefs(uiStore);
     >
       <img
         src="@/assets/logo.webp"
-        alt="Logo Send My Money"
+        alt="Logo Mis links de pago"
         width="50"
         height="50"
         loading="eager"
       />
       <h1 class="text-white text-center text-3xl font-bold">
-        <span class="hidden md:block">Send my money</span>
-        <span class="md:hidden">SMM</span>
+        <span class="hidden md:block">Mis links de pago</span>
+        <span class="md:hidden">MLDP</span>
       </h1>
     </router-link>
     <aside class="w-full register-container">

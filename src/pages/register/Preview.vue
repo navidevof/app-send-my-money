@@ -1,16 +1,23 @@
 <template>
   <aside
-    class="flex flex-col gap-y-8 w-11/12 mx-auto bg-custom-black-2 drop-shadow-white rounded-2xl px-4 py-8 md:p-8 max-w-screen-sm"
+    class="flex flex-col gap-y-8 w-11/12 mx-auto drop-shadow-white rounded-2xl px-4 py-8 md:p-8 max-w-screen-sm"
   >
     <header
       class="flex flex-col gap-y-1 justify-center items-center relative text-white"
     >
-      <h2 class="text-white text-xl font-semibold">Your SMM is ready!</h2>
-      <span class="text-white/70">It's time to share it with the world</span>
-      <span class="text-sm">sendmm.app/cantillo0422</span>
+      <h2 class="text-white text-xl font-semibold">¡Tu MLDP está lista!</h2>
+      <span class="text-white/70 text-center"
+        >Es tiempo de compartirla con el mundo</span
+      >
+      <a
+        :href="`${urlBase}/${page.url}`"
+        class="text-xs transition duration-200 hover:text-custom-green-1"
+      >
+        {{ urlBase }}/{{ page.url }}
+      </a>
     </header>
     <div
-      class="flex flex-col gap-y-8 max-w-lg rounded-2xl mx-auto w-full bg-custom-black-2 pt-8 pb-9 drop-shadow-green text-white px-5 md:p-10"
+      class="flex flex-col gap-y-8 max-w-lg rounded-2xl mx-auto w-full pt-8 pb-9 drop-shadow-green text-white px-5 md:p-10"
     >
       <header
         class="flex flex-col gap-y-2 justify-center items-center relative"
@@ -76,6 +83,8 @@ const editorStore = useEditor();
 const userStore = useUser();
 const { page } = storeToRefs(editorStore);
 const { finishRegister } = storeToRefs(userStore);
+
+const urlBase = `${window.location.protocol}//${window.location.host}`;
 
 onMounted(() => {
   if (!page.value) {

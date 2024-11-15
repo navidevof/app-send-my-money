@@ -22,7 +22,7 @@
           >
             <IconBank class="size-full text-custom-black-2 p-1" />
           </div>
-          <div>New method</div>
+          <div>Nuevo método</div>
         </div>
       </template>
       <template #option="slotProps">

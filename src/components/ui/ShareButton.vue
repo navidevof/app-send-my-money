@@ -30,7 +30,7 @@ const share = async () => {
 
   try {
     await navigator.share({
-      title: "SMM 💰",
+      title: "Mis links de pago 💰",
       text: message ?? MESSAGES.SHARE_DEFAULT,
       url: shareLink,
     });

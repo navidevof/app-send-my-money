@@ -15,7 +15,7 @@ const getPage = async (url?: string) => {
       error: true,
       message: responseError({
         error,
-        defaultMessage: "Error getting page",
+        defaultMessage: "Error al obtener la página",
       }),
     };
   }
@@ -34,7 +34,7 @@ const getExternalPage = async (url: string) => {
       error: true,
       message: responseError({
         error,
-        defaultMessage: "Error getting page",
+        defaultMessage: "Error al obtener la página",
       }),
     };
   }
@@ -53,7 +53,7 @@ const verifyUrlPage = async (url: string) => {
       error: true,
       message: responseError({
         error,
-        defaultMessage: "Error verifying url",
+        defaultMessage: "Error al verificar la URL",
       }),
     };
   }
@@ -84,7 +84,7 @@ const updatePage = async (page: any, file?: File) => {
       error: true,
       message: responseError({
         error,
-        defaultMessage: "Error updating page",
+        defaultMessage: "Error al actualizar la página",
       }),
     };
   }

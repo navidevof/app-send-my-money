@@ -80,22 +80,24 @@ const getSalesByOption = (data: IStat[], methodTemplate: string) => {
 
 const getWeeklyActionCounts = (data: IStat[]) => {
   const weeklyData = {
-    Monday: 0,
-    Tuesday: 0,
-    Wednesday: 0,
-    Thursday: 0,
-    Friday: 0,
-    Saturday: 0,
-    Sunday: 0,
+    lunes: 0,
+    martes: 0,
+    miércoles: 0,
+    jueves: 0,
+    viernes: 0,
+    sábado: 0,
+    domingo: 0,
   };
 
   data.forEach((item) => {
     const date = new Date(item.createdAt);
-    const dayName = date.toLocaleDateString("en-US", { weekday: "long" });
+    const dayName = date.toLocaleDateString("es-ES", { weekday: "long" });
     if (weeklyData[dayName as keyof typeof weeklyData] !== undefined) {
       weeklyData[dayName as keyof typeof weeklyData] += 1;
     }
   });
+
+  console.log({ weeklyData });
 
   return Object.values(weeklyData);
 };
@@ -103,15 +105,15 @@ const getWeeklyActionCounts = (data: IStat[]) => {
 const getLabelByAction = (action: Action) => {
   switch (action) {
     case Action.OPEN_PAGE:
-      return "Open page";
+      return "Visitas";
     case Action.CLICK_METHOD:
-      return "Click method";
+      return "Clics en métodos";
     case Action.CLICK_METHOD_OPTION:
-      return "Click method option";
+      return "Clics en opciones";
     case Action.POSSIBLE_PAYMENT:
-      return "Possible payment";
+      return "Posible pago";
     default:
-      return "Unknown action";
+      return "Otros";
   }
 };
 

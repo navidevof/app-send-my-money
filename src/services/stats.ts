@@ -15,7 +15,7 @@ const createStatAction = async (stat: IStatCreate) => {
       error: true,
       message: responseError({
         error,
-        defaultMessage: "Error getting page",
+        defaultMessage: "Error al crear acción",
       }),
     };
   }
@@ -47,7 +47,7 @@ const getStats = async ({
       data: null,
       message: responseError({
         error,
-        defaultMessage: "Error getting stats",
+        defaultMessage: "Error al obtener la información",
       }),
     };
   }

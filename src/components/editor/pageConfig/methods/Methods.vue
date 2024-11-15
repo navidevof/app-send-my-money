@@ -36,7 +36,7 @@
       height="50"
     />
     <h3 class="text-white text-center font-light text-pretty">
-      Add a new method to begin customizing.
+      Agregar un Nuevo método para comenzar a personalizar.
     </h3>
   </aside>
 </template>

@@ -7,7 +7,7 @@
       class="flex flex-col md:items-center md:justify-center relative rounded-3xl overflow-y-auto max-h-[90vh] w-11/12 max-w-screen-lg bg-custom-black-3"
     >
       <header class="text-white text-center font-semibold py-5">
-        <h2 class="text-lg">Upgrade to Send Pro</h2>
+        <h2 class="text-lg">Actualizar a Pro</h2>
         <button
           class="absolute right-6 top-5 lg:right-8"
           @click="showModalPremium = false"
@@ -23,25 +23,25 @@
           class="flex order-2 md:order-1 flex-col gap-5 pb-5 pt-0 md:pt-5 text-white w-10/12 mx-auto"
         >
           <h3 class="font-bold text-2xl">
-            Get 15 days of Pro for free. Cancel anytime.
+            Obtenga 15 días de prueba gratis. Cancela en cualquier momento.
           </h3>
           <p class="text-white/85">
-            Streamline and manage your payment methods with a 15-day free trial
-            of SMM Premium! Only $18,000 COP/month or $4 after that. Unlock
-            features like:
+            Reduzca el tiempo y gestiona tus métodos de pago con un 15 días de
+            prueba gratuito de MLDP Premium! Sólo $18,000 COP/mes o $4 después
+            de eso. Desbloquea características como:
           </p>
           <ul class="list-disc flex flex-col gap-2 list-inside text-white/85">
-            <li>Analysis and statistics of your payment methods.</li>
-            <li>Add unlimited payment methods.</li>
-            <li>Include multiple options within each payment method.</li>
-            <li>Priority customer support and more.</li>
+            <li>Análisis y estadísticas de tus métodos de pago.</li>
+            <li>Agrega métodos de pago ilimitados.</li>
+            <li>Incluye múltiples opciones dentro de cada método de pago.</li>
+            <li>Soporte prioritario de clientes y más.</li>
           </ul>
           <span>
-            Pro is just $18,000 COP/month once your trial's up. You can cancel
-            any time!
+            Pro es sólo $18,000 COP/mes una vez que tu prueba esté lista.
+            ¡Puedes cancelar en cualquier momento!
           </span>
           <MainButton @click="goToPayment" class="sticky bottom-0 left-0">
-            Try Pro for Free ✨
+            Prueba Pro gratis ✨
           </MainButton>
         </div>
         <div
@@ -70,7 +70,7 @@ const { showModalPremium, page } = storeToRefs(editorStore);
 
 const goToPayment = () => {
   window.open(
-    `https://sendmymoney.lemonsqueezy.com/buy/3633e537-05c5-4155-a9aa-6c046eb4024e?checkout[custom][uid]=${page.value.uid}`,
+    `https://mislinksdepago.lemonsqueezy.com/buy/3633e537-05c5-4155-a9aa-6c046eb4024e?checkout[custom][uid]=${page.value.uid}`,
     "_blank"
   );
 

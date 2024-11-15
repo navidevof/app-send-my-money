@@ -10,7 +10,7 @@ import { ref, watch } from "vue";
 export const useEditor = defineStore(
   "editor",
   () => {
-    const TABS = ref<TTab[]>(["Methods", "Appearance"]);
+    const TABS = ref<TTab[]>(["Métodos", "Apariencia"]);
     const page = ref<IPage>(JSON.parse(JSON.stringify(INITIAL_PAGE)));
     const showModalPremium = ref<boolean>(false);
 
@@ -39,7 +39,11 @@ export const useEditor = defineStore(
       filePhoto.value = undefined;
       currentMethod.value = undefined;
       currentOption.value = undefined;
-      pageConfigCurrentTab.value = TABS.value[0];
+      pageConfigCurrentTab.value = JSON.parse(JSON.stringify(TABS.value[0]));
+      currentTheme.value =
+        page.value.styles.page.background === THEMES[0].styles.page.background
+          ? JSON.parse(JSON.stringify(THEMES[0]))
+          : JSON.parse(JSON.stringify(THEMES[1]));
     };
 
     const resetStore = () => {

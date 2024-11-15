@@ -1,7 +1,7 @@
 <template>
   <aside
     v-bind="$attrs"
-    class="flex flex-col lg:px-6 lg:py-7 gap-y-8 lg:max-w-sm h-[100dvh] lg:h-full lg:scale-100 fixed lg:translate-y-0 lg:opacity-100 lg:z-10 lg:relative transition duration-300 overflow-x-hidden mx-auto lg:max-h-[calc(100vh-180px)] overflow-y-auto w-full lg:rounded-3xl lg:border lg:bg-custom-black-2 border-white/50 lg:drop-shadow-green"
+    class="flex flex-col lg:px-6 lg:py-7 gap-y-8 lg:max-w-sm h-[100dvh] lg:h-full lg:scale-100 fixed lg:translate-y-0 lg:opacity-100 lg:z-10 lg:relative transition duration-300 overflow-x-hidden mx-auto lg:max-h-[calc(100vh-180px)] overflow-y-auto w-full lg:rounded-3xl lg:border lg: border-white/50 lg:drop-shadow-green"
     :class="
       showModalPreview
         ? 'top-0 z-30 left-0 scale-100 translate-y-0 opacity-100 px-10 pt-14 pb-10'
@@ -17,10 +17,10 @@
   <MainButton
     v-show="!showModalPreview"
     @click="showModalPreview = !showModalPreview"
-    class="fixed border-white border !w-fit px-8 bottom-10 left-1/2 -translate-x-1/2 lg:hidden z-20"
+    class="fixed border-white border !w-fit text-nowrap px-8 bottom-10 left-1/2 -translate-x-1/2 lg:hidden z-20"
   >
     <IconEye class="size-6 text-white" />
-    <strong class="text-white text-lg">Preview</strong>
+    <strong class="text-white text-lg">Vista previa</strong>
   </MainButton>
 
   <MainButton

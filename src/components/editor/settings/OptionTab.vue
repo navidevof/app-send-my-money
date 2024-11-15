@@ -1,6 +1,6 @@
 <template>
   <button
-    class="py-2 px-4 rounded-lg hover:bg-custom-black-3 flex items-center gap-x-2 transition duration-200"
+    class="py-2 px-4 rounded-lg bg-custom-black-2 hover:bg-custom-black-3 flex items-center gap-x-2 transition duration-200"
     :class="isActive && 'bg-custom-black-3'"
     @dblclick="activateEdition"
     @click="setCurrentOption"
@@ -95,7 +95,7 @@ const onCopyOption = () => {
 
 const onChangeOptionName = () => {
   if (currentOption.value?.name === "") {
-    currentOption.value.name = "New option";
+    currentOption.value.name = "Nueva opción";
   }
 };
 

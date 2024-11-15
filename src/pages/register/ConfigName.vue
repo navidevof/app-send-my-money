@@ -1,18 +1,20 @@
 <template>
   <form
     @submit.prevent="handleSubmit"
-    class="flex flex-col w-11/12 gap-y-5 mx-auto max-w-lg rounded-2xl bg-custom-black-2 pt-8 pb-9 drop-shadow-green"
+    class="flex flex-col w-11/12 gap-y-5 mx-auto max-w-lg rounded-2xl pt-8 pb-9 drop-shadow-green bg-custom-black-2"
   >
     <header class="w-11/12 mx-auto text-center">
-      <h2 class="text-white text-xl font-semibold">Choose a username</h2>
-      <span class="text-white/70"> What do you want your link to be? </span>
+      <h2 class="text-white text-xl font-semibold">
+        Elige un nombre para tu página
+      </h2>
+      <span class="text-white/70"> ¿Cual quieres que sea tu enlace? </span>
     </header>
     <aside class="w-11/12 mx-auto flex flex-col gap-y-5">
       <label
         class="w-full bg-custom-black-3 text-white rounded-lg border border-white/30 px-4 py-3 flex items-center"
       >
         <span class="text-nowrap md:text-base text-sm text-white/70">
-          sendmm.app/
+          mislinksdepago.com/
         </span>
         <input
           type="text"
@@ -41,15 +43,15 @@
           </div>
         </div>
       </label>
-      <BannerInfo text="You can change this at any time!" />
+      <BannerInfo text="¡Piensa bien el nombre, no se puede cambiar!" />
       <MainButton :disabled="!canContinue" class="text-white mt-4">
-        Continue
+        Continuar
       </MainButton>
       <router-link
         to="/register"
         class="text-center text-white/70 text-sm underline hover:text-white transition duration-200"
       >
-        Go back
+        Volver
       </router-link>
     </aside>
   </form>

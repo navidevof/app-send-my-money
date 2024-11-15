@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-y-3 w-full pb-20">
-    <h3 class="text-white font-medium">Mode</h3>
+    <h3 class="text-white font-medium">Tema de la página</h3>
     <ButtonTheme
       v-for="(theme, idx) in THEMES"
       :key="idx"

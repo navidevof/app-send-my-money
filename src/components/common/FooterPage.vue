@@ -2,16 +2,16 @@
   <footer class="w-full flex flex-col items-center gap-y-3 sticky bottom-5">
     <a href="/" target="_blank" rel="noreferrer noopener">
       <MainButton
-        class="!w-fit mx-auto opacity-50 hover:opacity-100 group hover:!bg-custom-green-1 drop-shadow-green border border-white/50"
+        class="!w-fit mx-auto md:opacity-50 hover:opacity-100 group hover:!bg-custom-green-1 drop-shadow-green border border-white/50"
       >
         <img
           src="@/assets/logo.webp"
-          alt="SMM"
+          alt="MLDP"
           class="aspect-square size-9"
           width="50"
           height="50"
         />
-        <span class="text-white text-sm">Want your own payment page?</span>
+        <span class="text-white text-sm">¿Quieres una página?</span>
       </MainButton>
     </a>
     <button
@@ -19,7 +19,7 @@
       v-if="showHiddenButton"
       class="text-sm font-medium"
     >
-      Hide SMM logo <IconPadlock class="size-5 inline-block" />
+      Ocultar logo <IconPadlock class="size-5 inline-block" />
     </button>
   </footer>
 </template>

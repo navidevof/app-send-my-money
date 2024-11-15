@@ -17,7 +17,7 @@
       >
         <IconTimeline class="size-8 text-white" />
         <p class="text-white text-center text-sm">
-          Upgrade to Pro to view this statistic
+          Actualiza a MLDP Pro para ver estadísticas
         </p>
         <MainButton
           @click="showModalPremium = true"

@@ -16,20 +16,20 @@ const { data } = defineProps<Props>();
 const $chartDom = ref<HTMLDivElement>();
 
 const daysOfWeek = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
+  "lunes",
+  "martes",
+  "miércoles",
+  "jueves",
+  "viernes",
+  "sábado",
+  "domingo",
 ];
 
 const createTooltip = (params: any) => {
   const dayValue = params[0].axisValue;
   const actions = data.filter((item) => {
     return (
-      new Date(item.createdAt).toLocaleDateString("en-US", {
+      new Date(item.createdAt).toLocaleDateString("es-ES", {
         weekday: "long",
       }) === dayValue
     );
@@ -61,7 +61,7 @@ const initChart = () => {
       formatter: (params: any) => createTooltip(params),
     },
     legend: {
-      data: ["Actions"],
+      data: ["Acciones"],
       padding: [20, 0, 0, 0],
     },
     xAxis: {
@@ -77,7 +77,7 @@ const initChart = () => {
     },
     series: [
       {
-        name: "Actions",
+        name: "Acciones",
         type: "bar",
         data: weeklyCounts,
         itemStyle: {

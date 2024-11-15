@@ -20,7 +20,7 @@
           v-if="!isCopied"
           class="size-5 min-w-5 text-custom-green-1 cursor-pointer"
         />
-        <span v-else class="text-sm text-nowrap">Copied! 🎉</span>
+        <span v-else class="text-sm text-nowrap">¡Copiado! 🎉</span>
       </button>
     </div>
   </div>

@@ -58,7 +58,7 @@ const initChart = () => {
       trigger: "axis",
     },
     legend: {
-      data: ["Views", "Clicks", "Possible sales"],
+      data: ["Visitas", "Clics", "Posibles pagos"],
       padding: [20, 0, 0, 0],
     },
     dataZoom: [
@@ -110,17 +110,17 @@ const initChart = () => {
     },
     series: [
       {
-        name: "Views",
+        name: "Visitas",
         type: "line",
         data: openPageCounts,
       },
       {
-        name: "Clicks",
+        name: "Clics",
         type: "line",
         data: clickMethodCounts,
       },
       {
-        name: "Possible sales",
+        name: "Posibles pagos",
         type: "line",
         data: possiblePaymentCounts,
       },

@@ -1,12 +1,12 @@
 <template>
   <form
     @submit.prevent="handleSubmit"
-    class="flex flex-col w-11/12 mx-auto max-w-lg rounded-2xl bg-custom-black-2 pt-8 pb-9 drop-shadow-green"
+    class="flex flex-col w-11/12 mx-auto max-w-lg rounded-2xl pt-8 pb-9 drop-shadow-green bg-custom-black-2"
   >
     <h2
       class="text-white text-pretty w-11/12 mx-auto text-xl text-center font-semibold"
     >
-      Select your payment methods
+      Selecciona tus métodos de pago
     </h2>
     <aside
       class="w-11/12 mx-auto mt-5 flex flex-col gap-y-4 items-center"
@@ -19,7 +19,10 @@
         :method="method"
         @delete="() => onDelete(idx)"
       />
-      <BannerInfo text="You can add or remove at any time!" class="mt-3" />
+      <BannerInfo
+        text="Puedes agregar o eliminar en cualquier momento"
+        class="mt-3"
+      />
       <MainButton
         type="button"
         v-if="page.methods.length < 3"
@@ -27,15 +30,15 @@
         class="text-white"
       >
         <IconPlus class="size-5" />
-        Add method
+        Agregar
       </MainButton>
-      <MainButton class="mt-4 text-white"> Continue </MainButton>
+      <MainButton class="mt-4 text-white"> Continuar </MainButton>
 
       <router-link
         to="/register/account/config-name"
         class="text-center text-white/70 text-sm underline hover:text-white transition duration-200"
       >
-        Go back
+        Volver
       </router-link>
     </aside>
   </form>
