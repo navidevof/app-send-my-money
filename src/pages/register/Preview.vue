@@ -10,7 +10,7 @@
         >Es tiempo de compartirla con el mundo</span
       >
       <a
-        :href="`${urlBase}/${page.url}`"
+        :href="`${urlBase}/page/${page.url}`"
         class="text-xs transition duration-200 hover:text-custom-green-1"
       >
         {{ urlBase }}/{{ page.url }}
