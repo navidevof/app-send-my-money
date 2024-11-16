@@ -32,7 +32,7 @@
           Feedback
         </a>
         <button
-          class="w-[45px] h-[45px] rounded-full overflow-hidden border-2 border-white/80"
+          class="w-[45px] h-[45px] rounded-full overflow-hidden relative border-2 border-white/80"
           name="avatar"
           type="button"
           @click.stop="toggleDropdown"
