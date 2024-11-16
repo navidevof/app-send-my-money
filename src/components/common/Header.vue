@@ -41,7 +41,7 @@
             <img
               :src="page.photo"
               alt="Profile photo"
-              class="object-cover object-center size-full"
+              class="object-cover absolute top-0 left-0 object-center size-full"
               width="50"
               height="50"
             />
