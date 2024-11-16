@@ -21,7 +21,7 @@
       <div
         class="flex gap-x-2 md:justify-center items-center overflow-x-auto custom-scroll"
         ref="$tabs"
-        v-show="method?.options.length > 1"
+        v-if="method?.options.length > 1"
       >
         <TabButton
           v-for="option in method?.options"
@@ -29,6 +29,11 @@
           :isActive="option === currentOption"
           @click="selectOption(option)"
           class="w-fit"
+          :class="[
+            option === currentOption
+              ? '!bg-custom-black-2'
+              : '!bg-custom-black-3',
+          ]"
         >
           <h3
             class="md:text-lg font-semibold transition duration-200 text-nowrap"
@@ -49,7 +54,7 @@
           @copy="handleCopy"
         />
         <span
-          v-show="!currentOption?.fields.length"
+          v-if="!currentOption?.fields.length"
           class="text-center text-pretty text-sm"
         >
           It looks like this payment method doesn’t have details available. Try
