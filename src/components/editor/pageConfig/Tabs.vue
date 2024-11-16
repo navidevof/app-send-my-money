@@ -1,6 +1,6 @@
 <template>
   <header
-    class="flex items-center gap-x-1 min-h-fit w-full overflow-x-auto custom-scroll"
+    class="flex items-center gap-x-1 min-h-[150px] w-full overflow-x-auto custom-scroll"
   >
     <TabButton
       v-for="tab in TABS"

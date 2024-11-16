@@ -6,9 +6,9 @@
       class="flex flex-col gap-y-1 justify-center items-center relative text-white"
     >
       <h2 class="text-white text-xl font-semibold">¡Tu MLDP está lista!</h2>
-      <span class="text-white/70 text-center"
-        >Es tiempo de compartirla con el mundo</span
-      >
+      <span class="text-white/70 text-center">
+        Es tiempo de compartirla con el mundo
+      </span>
       <a
         :href="`${urlBase}/page/${page.url}`"
         class="text-xs transition duration-200 hover:text-custom-green-1"
