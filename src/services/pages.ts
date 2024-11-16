@@ -62,6 +62,7 @@ const verifyUrlPage = async (url: string) => {
 const updatePage = async (page: any, file?: File) => {
   try {
     const formData = new FormData();
+    if (page.plan) delete page.plan;
 
     formData.append("page", JSON.stringify(page));
 
