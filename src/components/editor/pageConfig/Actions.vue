@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-y-3 w-full sticky top-0 z-10">
+  <div class="flex flex-col gap-y-3 w-full sticky top-0 md:relative z-10">
     <MainButton @click="onSave" :disabled="!unsavedChanges">
       <IconSave class="size-6 text-white" />
       <span class="text-lg font-semibold text-white"> Publicar cambios </span>
